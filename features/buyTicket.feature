@@ -46,7 +46,7 @@ Feature: Buying tickets
         Given I am logged in as a "client"
         And I choose a session from the movies list
         And The session is available
-        When I choose "two" seats
+        When I choose "four" seats
         And The seats are available
         Then I am redirected to the payment section
         When I choose half price or full price tickets
