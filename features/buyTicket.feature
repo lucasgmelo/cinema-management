@@ -15,14 +15,11 @@ Feature: Compra de ingressos
         And O pagamento é efetuado
         Then Recebo meus ingressos
 
-            Scenario: Compra de ingressos indisponíveis     
+    Scenario: Compra de ingressos indisponíveis     
         Given Eu estou logado como "cliente"
         And Eu escolho a sessão do "homem-aranha" da lista de filmes
         And A sessão está disponível
         When Eu escolho "dois" assentos indisponíveis
         Then Recebo uma mensagem de erro
         And Permaneço na página de seleção de assentos
-
-
-
 
