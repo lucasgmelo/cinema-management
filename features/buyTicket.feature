@@ -8,7 +8,7 @@ Feature: Compra de ingressos para uma sessão disponível
         Given Eu estou logado como "cliente"
         And Eu escolho a sessão do "homem-aranha" da lista de filmes
         And A sessão está disponível
-        When Eu escolho um ou mais assentos disponíveis
+        When Eu escolho "dois" assentos disponíveis
         Then Eu sou redirecionado para a página de pagamento
         When Eu escolho comprar "meia entrada" dos ingressos
         And Escolho pagar com "cartão de crédito"
