@@ -1,11 +1,9 @@
 Feature: List movies in theaters
-    AS A movie employee
-    I WANT TO list the movies in theaters
-    SO THAT customers can view the information of each of the films being shown
-
+    As a customer
+    I want to see which movies are available
 
     Scenario: No movie in poster
-        Given the client "Igor Eduardo" is registered and logged in the system
+        Given the client "Igor Eduardo" is on the "films" screen
         And the system doesn't have any movies playing at the moment
         When the client "Igor Eduardo" accesses the "films" screen
         Then an error message indicating that there are no movies available will be displayed.
@@ -13,14 +11,13 @@ Feature: List movies in theaters
 
     Scenario: Movie sold out while on movie screen
         Given "Minions 2" and "Thor: Love and Thunder" are registered in the system
-        And the client "Igor Eduardo" is registered and logged in the system
         And the client "Igor Eduardo" is on the "films" screen
         And the movie "Minions 2" is shown on the screen
         And "Minions 2" has all its sessions full after the client is on screen movies
         When "Igor Eduardo" client selects to view "Minions 2" sessions
         Then an error message indicating that there are no sessions available will be displayed.
         And the client returns to the "movies" screen
-        And "Minions 2" is not shown as a movie poster
+        And "Minions 2" is shown as a disable movie poster
         And "Thor: Love and Thunder" is shown as a movie poster
 
     Scenario: See all sessions of a movie
