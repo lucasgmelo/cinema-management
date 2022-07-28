@@ -43,4 +43,15 @@ Feature: registerNewMovie
         And the system already has a movie entitled "Top Gun: Maverick"
         When I register the movie with name "Top Gun: Maverick"
         Then I can see an error message indicating that movie name is already registered
-        And I can see the movie cannot be registered    
+        And I can see the movie cannot be registered
+
+    Scenario: new movie without filling all information
+        Given I am at the "Register new movie" area
+        And the system has no movie entitled "Top Gun: Maverick"
+        When I register the movie with name "Top Gun: Maverick"
+        And I fill the "Director's name" field with "Tom Cruise"
+        And I fill the release date with "May 26, 2022"
+        And I set the screening end date with "July 1st, 2022"
+        Then I can see an error message indicating i have to fill all fields to 
+            register and the sessions weren't specified
+        And I can the movie cannot be registered in the system
