@@ -34,12 +34,13 @@ Feature: registerNewMovie
         And I fill the sessions information with "Everyday, theater 4, 5 pm"
         And I fill the sessions information with "Everyday, theater 4, 10 pm"
         And I set the screening end date with "July 1st, 2022"
-        Then I can see an error message indicating there was a conflict of sessions with "Sonic the Hedgehog 2"
+        Then I can see an error message indicating there was a conflict 
+            of sessions with "Sonic the Hedgehog 2"
         And "Top Gun: Maverick" is not registered in the system
 
-
-
-
-
-
-
+    Scenario: new movie already registered
+        Given I am at the "Register new movie" area
+        And the system already has a movie entitled "Top Gun: Maverick"
+        When I register the movie with name "Top Gun: Maverick"
+        Then I can see an error message indicating that movie name is already registered
+        And I can see the movie cannot be registered    
