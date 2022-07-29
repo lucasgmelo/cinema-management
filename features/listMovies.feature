@@ -54,14 +54,14 @@ Feature: List movies in theaters
         And the client remains on the "movies" screen
 
     Scenario: Film with no available capacity
-         Given "Minions 2" and "Thor: Love and Thunder" are registered in the system
-         And all "Minions 2" sessions are full
-         And "Thor: Love and Thunder" is a movie in theaters
-         And the client "Igor Eduardo" is registered and logged in the system
-         When the "Igor Eduardo" client tries to access the "films" screen
-         Then "Minions 2" is not shown as a movie poster
-         And "Thor: Love and Thunder" is shown as a movie poster
-         And the client remains on the "movies" screen
+        Given "Minions 2" and "Thor: Love and Thunder" are registered in the system
+        And all "Minions 2" sessions are full
+        And "Thor: Love and Thunder" is a movie in theaters
+        And the client "Igor Eduardo" is registered and logged in the system
+        When the "Igor Eduardo" client tries to access the "films" screen
+        Then "Minions 2" is shown as a disable movie poster
+        And "Thor: Love and Thunder" is shown as a movie poster
+        And the client remains on the "movies" screen
 
 
     Scenario: Crowded Movie Sessions Hidden
@@ -79,4 +79,5 @@ Feature: List movies in theaters
         When "Igor Eduardo" client selects to view "Minions 2" sessions
         Then the client goes to the "Sessions" screen of "Minions 2"
         And the information about the 14:00 session in Room 3 (3D and Dubbed) is shown
-        And the information about the 17:30 session in Room 3 (3D and Subtitled) is omitted
+        And the information about the 17:30 session in Room 3 (3D and Subtitled) is disable
+        
