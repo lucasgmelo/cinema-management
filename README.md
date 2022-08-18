@@ -55,17 +55,16 @@ To get a local copy up and running follow these simple example steps.
 This is an example of how to list things you need to use the software and how to install them.
 
 - <a href="https://nodejs.org/en/download/">Node</a>
-- <a href="https://nodejs.org/en/download/">Angular CLI</a>
+- Angular CLI
+```sh
+   npm install -g @angular/cli
+   ```
 
 ### :gear: Installation
 
-1. Clone the repo
+1. Clone the repo (or your fork)
    ```sh
-   git clone https://github.com/Neurolake/plataforma-monorepo.git
-   ```
-2. Install dependencies
-   ```sh
-   npm install -g @angular/cli
+   git clone https://github.com/lucasgmelo/cinema-management.git
    ```
 
 ### :sauropod: Setup environment
