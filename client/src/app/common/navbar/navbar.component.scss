@@ -25,8 +25,17 @@
       display: flex;
       align-items: center;
 
-      p {
+      a, p {
         margin-left: 8px;
+      }
+
+      button {
+        padding: 0;
+        box-shadow: none;
+        outline: none;
+        border: none;
+        background: transparent;
+        margin-left: 16px;
       }
     }
   }

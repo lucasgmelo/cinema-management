@@ -32,7 +32,7 @@ export class AuthService {
     this.user.access = access;
   }
 
-  signOut() {
+  logout() {
     this.user.name = null;
     this.user.access = 'guest';
 
