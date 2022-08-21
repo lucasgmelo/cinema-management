@@ -26,7 +26,6 @@ export class AuthService {
   };
 
   signIn(name: string, access: 'manager' | 'customer') {
-    console.log('123');
     localStorage.setItem('user', JSON.stringify({ name, access }));
     this.user.name = name;
     this.user.access = access;
