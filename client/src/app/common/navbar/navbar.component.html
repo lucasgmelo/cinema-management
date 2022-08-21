@@ -2,12 +2,29 @@
   <a>
     <img src="assets/logo.svg" />
   </a>
-  
-  <section>
-    <p>texto1</p>
+
+  <section *ngIf="user && user.access == 'guest'">
     <div class="auth">
       <img src="assets/user.svg" />
-      <p>texto2</p>
+      <p class="signIn" (click)="signIn('Lucas', 'manager')">Login</p>
     </div>
   </section>
+
+  <section *ngIf="user && user.access == 'manager'">
+    <p>Gerenciar</p>
+    <div class="auth">
+      <img src="assets/user.svg" />
+      <p>{{ user.name }}</p>
+    </div>
+  </section>
+  
+  <section *ngIf="user && user.access == 'customer'">
+    <p>Ingressos</p>
+    <div class="auth">
+      <img src="assets/user.svg" />
+      <p>{{ user.name }}</p>
+    </div>
+  </section>
+
+
 </nav>
