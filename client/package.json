@@ -6,15 +6,17 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "prettier:check": "prettier --config .prettierrc --check \"src/**/*.{ts,css,html}\"" 
+    "test": "ng test --watch=false --browsers ChromeHeadless",
+    "test:detailed": "ng test",
+    "lint": "npx eslint \"src/**/*.{js,jsx,ts,tsx,html}\" --quiet --fix",
+    "format": "npx prettier \"src/**/*.{js,jsx,ts,tsx,html,css,scss}\" --write"
   },
-  "husky": {   
-     "hooks": {  
-        "pre-commit": "npm run prettier:check",
-        "pre-push": "npm run test"     
-      }   
-   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier:check",
+      "pre-push": "npm run test"
+    }
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.1.0",
@@ -35,6 +37,8 @@
     "@angular/cli": "~14.1.2",
     "@angular/compiler-cli": "^14.1.0",
     "@types/jasmine": "~4.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.1",
     "jasmine-core": "~4.2.0",
     "karma": "~6.4.0",
