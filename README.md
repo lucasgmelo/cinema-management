@@ -41,7 +41,6 @@ This project is divided in different packages so it's easier to maintain while s
 
 - <a href="https://angular.io/">Angular</a>
 - <a href="https://sass-lang.com/">SCSS</a>
-- <a href="https://material.angular.io/">Angular Material UI</a>
 
 <!-- GETTING STARTED -->
 
