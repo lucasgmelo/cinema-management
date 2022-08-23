@@ -1,0 +1,34 @@
+<nav class="navbar-container">
+  <a>
+    <img src="assets/logo.svg" />
+  </a>
+
+  <section *ngIf="user && user.access == 'guest'">
+    <div class="auth">
+      <img src="assets/user.svg" alt="Usuário" />
+      <a class="signIn" (click)="signIn('John Doe', 'manager')">Login</a>
+    </div>
+  </section>
+
+  <section *ngIf="user && user.access == 'manager'">
+    <p>Gerenciar</p>
+    <div class="auth">
+      <img src="assets/user.svg" alt="Usuário" />
+      <p>{{ user.name }}</p>
+      <button (click)="logout()" type="button">
+        <img src="assets/logout.svg" alt="Log out" class="logout" />
+      </button>
+    </div>
+  </section>
+
+  <section *ngIf="user && user.access == 'customer'">
+    <p>Ingressos</p>
+    <div class="auth">
+      <img src="assets/user.svg" alt="Usuário" />
+      <p>{{ user.name }}</p>
+      <button (click)="logout()" type="button">
+        <img src="assets/logout.svg" alt="Log out" class="logout" />
+      </button>
+    </div>
+  </section>
+</nav>

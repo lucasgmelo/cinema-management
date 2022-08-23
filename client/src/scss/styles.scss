@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #fdfdff;
+  --bg: #24293e;
+  --primary: #8ebbff;
+  --gray: #a6acc1;
+  --contrast-1: #2f3651;
+  --contrast-2: #303853;
+  --orange: rgba(255, 107, 0, 0.8);
+  --gradient1: linear-gradient(180deg, #24293e 0%, #2f3651 100%);
+  --gradient2: linear-gradient(180deg, #303853 0%, #a6acc1 371.43%);
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font: 400 1rem "Inter", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+main.page-container {
+  padding: 24px 64px;
+}
