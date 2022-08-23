@@ -8,8 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=false --browsers ChromeHeadless",
     "test:detailed": "ng test",
-    "lint": "npx eslint \"src/**/*.{js,jsx,ts,tsx,html}\" --quiet --fix",
-    "format": "npx prettier \"src/**/*.{js,jsx,ts,tsx,html,css,scss}\" --write"
+    "format": "npx prettier \"src/**/*.{js,jsx,ts,tsx,html,css,scss}\" --write",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
@@ -39,7 +39,7 @@
     "@types/jasmine": "~4.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "husky": "^8.0.1",
+    "husky": "^8.0.0",
     "jasmine-core": "~4.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
