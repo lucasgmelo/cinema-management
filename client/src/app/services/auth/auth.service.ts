@@ -11,9 +11,7 @@ export interface User {
 export class AuthService {
   constructor() {
     if (localStorage.getItem('user')) {
-      const currentUser: User = JSON.parse(
-        localStorage.getItem('user') || '{}'
-      );
+      const currentUser: User = JSON.parse(localStorage.getItem('user') || '{}');
 
       this.user.name = currentUser.name;
       this.user.access = currentUser.access;

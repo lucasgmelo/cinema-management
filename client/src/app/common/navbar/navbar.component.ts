@@ -15,9 +15,9 @@ export class NavbarComponent implements OnInit {
 
   user = this.authService.user;
 
-  goToLoginPage(){
-    if(this.router.url.includes('login') || this.router.url.includes('cadastro')) return;
-    this.router.navigate(['/login'])
+  goToLoginPage() {
+    if (this.router.url.includes('login') || this.router.url.includes('cadastro')) return;
+    this.router.navigate(['/login']);
   }
 
   signIn(name: string, access: 'manager' | 'customer') {
@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
     console.log('logado');
   }
 
-  logout(){
+  logout() {
     this.authService.logout();
     console.log('deslogado');
   }

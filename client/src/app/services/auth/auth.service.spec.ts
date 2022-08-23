@@ -20,10 +20,10 @@ describe('AuthService', () => {
     expect(service.user.name).toBe('John');
     expect(service.user.access).toBe('customer');
   });
-  
+
   it('should be able to signIn as a manager', () => {
     service.signIn('Teddy', 'manager');
-    
+
     expect(service.user.name).toBe('Teddy');
     expect(service.user.access).toBe('manager');
   });
@@ -43,7 +43,7 @@ describe('AuthService', () => {
   it('should be able to logout', fakeAsync(() => {
     service.signIn('John', 'manager');
 
-    service.logout()
+    service.logout();
 
     expect(service.user.name).toBe(null);
     expect(service.user.access).toBe('guest');
@@ -54,7 +54,7 @@ describe('AuthService', () => {
 
     service.signIn('John', 'manager');
 
-    service.logout()
+    service.logout();
 
     expect(JSON.parse(localStorage.getItem('user') || '{}')).toEqual({});
   }));
