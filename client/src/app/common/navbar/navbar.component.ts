@@ -16,7 +16,6 @@ export class NavbarComponent implements OnInit {
   user = this.authService.user;
 
   goToLoginPage() {
-    if (this.router.url.includes('login') || this.router.url.includes('cadastro')) return;
     this.router.navigate(['/login']);
   }
 

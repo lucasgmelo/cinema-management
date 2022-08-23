@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent implements OnInit {
-  constructor() {}
+  constructor(private route: Router) {}
 
   ngOnInit(): void {}
+
+  backToHome() {
+    this.route.navigate(['/']);
+  }
 }
