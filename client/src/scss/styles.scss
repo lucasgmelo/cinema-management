@@ -48,4 +48,9 @@ button {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
+}
+
+main.page-container {
+  padding: 24px 64px;
 }
