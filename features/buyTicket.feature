@@ -15,7 +15,8 @@ Feature: Buying tickets
         And I select credit card as paying method
         And I fill my card informations
         And The payment is approved
-        Then I receive the tickets
+        Then I receive the tickets at the My tickets Section
+        And I am able to see the informations about those tickets
 
     Scenario: Buying available tickets with bank slip  
         Given I am logged in as a "client"
@@ -28,7 +29,8 @@ Feature: Buying tickets
         And I select bank slip as paying method
         And I get access to the bank slip informations
         And The payment is approved
-        Then I receive the tickets
+        Then I receive the tickets at the My tickets Section
+        And I am able to see the informations about those tickets
 
     Scenario: Buying unavailable tickets     
         Given I am logged in as a "client"
@@ -44,7 +46,7 @@ Feature: Buying tickets
         Given I am logged in as a "client"
         And I choose a session from the movies list
         And The session is available
-        When I choose "two" seats
+        When I choose "four" seats
         And The seats are available
         Then I am redirected to the payment section
         When I choose half price or full price tickets
