@@ -1,0 +1,46 @@
+.tickets {
+
+    margin: 56px 0;
+
+    h2 {
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    & > div {
+        padding: 32px 0 56px;
+        width: 700px;
+
+        p{
+            font-size: 24px;
+        }
+
+        .header p{
+            
+            font-weight: 500;
+        }
+
+        div {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            & + div {
+                margin-top: 24px;
+            }
+
+        }
+
+    }
+
+    & > p {
+        font-size: 28px;
+        font-weight: 600;
+
+        span {
+            margin-left: 16px;
+            font-weight: 500;
+        }
+
+    }
+
+}
