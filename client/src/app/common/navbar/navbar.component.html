@@ -6,7 +6,7 @@
   <section *ngIf="user && user.access == 'guest'">
     <div class="auth">
       <img src="assets/user.svg" alt="Usuário" />
-      <a class="signIn" (click)="signIn('John Doe', 'manager')">Login</a>
+      <a class="signIn" (click)="goToLoginPage()">Login</a>
     </div>
   </section>
 
