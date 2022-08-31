@@ -12,6 +12,7 @@
   --contrast-1: #2f3651;
   --contrast-2: #303853;
   --orange: rgba(255, 107, 0, 0.8);
+  --error: #e44040;
   --gradient1: linear-gradient(180deg, #24293e 0%, #2f3651 100%);
   --gradient2: linear-gradient(180deg, #303853 0%, #a6acc1 371.43%);
 }
@@ -47,7 +48,7 @@ button {
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
   cursor: pointer;
 }
 

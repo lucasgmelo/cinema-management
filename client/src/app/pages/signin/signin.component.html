@@ -9,7 +9,7 @@
 
       <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
         <div class="item">
-          <label for="email">Email</label>
+          <label for="email">Email<span>*</span></label>
           <input
             class="input-global"
             type="email"
@@ -22,7 +22,7 @@
         </div>
 
         <div class="item">
-          <label for="password">Senha</label>
+          <label for="password">Senha<span>*</span></label>
           <input
             class="input-global"
             type="password"

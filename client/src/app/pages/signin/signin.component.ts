@@ -31,6 +31,8 @@ export class SigninComponent implements OnInit {
     this.route.navigate(['/cadastro']);
   }
 
+  onChangeEmail() {}
+
   onSubmit(): void {
     const { email, password } = this.signinForm.value;
 
