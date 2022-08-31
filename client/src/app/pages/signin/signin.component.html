@@ -7,16 +7,30 @@
     <section>
       <h1>Entrar</h1>
 
-      <form action="">
+      <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
         <div class="item">
           <label for="email">Email</label>
-          <input class="input-global" type="email" name="email" required autocomplete="off" />
+          <input
+            class="input-global"
+            type="email"
+            name="email"
+            id="email"
+            formControlName="email"
+            required
+            autocomplete="off"
+          />
         </div>
 
         <div class="item">
           <label for="password">Senha</label>
-          <input class="input-global" type="password" name="password" required />
-          <p id="error">Login ou senha incorretos</p>
+          <input
+            class="input-global"
+            type="password"
+            name="password"
+            id="password"
+            formControlName="password"
+            required
+          />
         </div>
 
         <div class="footer">
