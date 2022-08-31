@@ -3,7 +3,26 @@ import { Injectable } from '@angular/core';
 export interface User {
   name: string | null;
   access: 'guest' | 'manager' | 'customer';
+  password?: string;
 }
+
+interface MockedUserTypes {
+  'ada@gmail.com': User;
+  'pog@gmail.com': User;
+}
+
+const mockedUsers: MockedUserTypes = {
+  'ada@gmail.com': {
+    name: 'Ada',
+    password: '123123',
+    access: 'customer',
+  },
+  'pog@gmail.com': {
+    name: 'Pog',
+    password: '123123',
+    access: 'manager',
+  },
+};
 
 @Injectable({
   providedIn: 'root',
@@ -11,9 +30,7 @@ export interface User {
 export class AuthService {
   constructor() {
     if (localStorage.getItem('user')) {
-      const currentUser: User = JSON.parse(
-        localStorage.getItem('user') || '{}'
-      );
+      const currentUser: User = JSON.parse(localStorage.getItem('user') || '{}');
 
       this.user.name = currentUser.name;
       this.user.access = currentUser.access;
@@ -25,10 +42,19 @@ export class AuthService {
     access: 'guest',
   };
 
-  signIn(name: string, access: 'manager' | 'customer') {
-    localStorage.setItem('user', JSON.stringify({ name, access }));
-    this.user.name = name;
-    this.user.access = access;
+  signIn(email: string, password: string) {
+    if (Object.keys(mockedUsers).find((key) => key === email)) {
+      const newName = mockedUsers['ada@gmail.com'].name;
+      const newAccess: 'customer' | 'manager' | 'guest' = mockedUsers['ada@gmail.com'].access;
+
+      localStorage.setItem('user', JSON.stringify({ name: newName, access: newAccess }));
+      this.user.name = newName;
+      this.user.access = newAccess;
+
+      return true;
+    }
+
+    return false;
   }
 
   logout() {

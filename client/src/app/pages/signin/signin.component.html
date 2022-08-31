@@ -1,0 +1,43 @@
+<main>
+  <section class="banner"></section>
+
+  <div class="container">
+    <app-button type="default" content="Voltar" (click)="backToHome()"></app-button>
+
+    <section>
+      <h1>Entrar</h1>
+
+      <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+        <div class="item">
+          <label for="email">Email</label>
+          <input
+            class="input-global"
+            type="email"
+            name="email"
+            id="email"
+            formControlName="email"
+            required
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="item">
+          <label for="password">Senha</label>
+          <input
+            class="input-global"
+            type="password"
+            name="password"
+            id="password"
+            formControlName="password"
+            required
+          />
+        </div>
+
+        <div class="footer">
+          <a>Cadastre-se</a>
+          <app-button type="default" content="Entrar"></app-button>
+        </div>
+      </form>
+    </section>
+  </div>
+</main>

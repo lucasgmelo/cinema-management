@@ -38,7 +38,7 @@ input,
 textarea,
 select,
 button {
-  font: 400 1rem "Inter", sans-serif;
+  font: 400 1rem 'Inter', sans-serif;
 }
 
 button {
@@ -53,4 +53,12 @@ a {
 
 main.page-container {
   padding: 24px 64px;
+}
+
+input.input-global {
+  background: var(--white);
+  border-radius: 5px;
+  font-family: 'Inter', sans-serif;
+  border: 0;
+  font-size: 14px;
 }

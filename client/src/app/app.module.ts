@@ -8,6 +8,8 @@ import { BadgeComponent } from './common/badge/badge.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ButtonComponent } from './common/button/button.component';
+import { SigninComponent } from './pages/signin/signin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,11 @@ import { ButtonComponent } from './common/button/button.component';
     BadgeComponent,
     CheckoutComponent,
     HomeComponent,
-    ButtonComponent
+    ButtonComponent,
+    SigninComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
