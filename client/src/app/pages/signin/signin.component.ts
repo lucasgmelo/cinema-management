@@ -41,7 +41,6 @@ export class SigninComponent implements OnInit {
       Toast.fire({
         icon: 'error',
         title: 'Login ou senha incorretos',
-        timer: 0,
       });
   }
 }
