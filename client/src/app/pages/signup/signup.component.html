@@ -1,13 +1,24 @@
 <main>
-  <section class="banner"></section>
-
   <div class="container">
-    <app-button type="default" content="Voltar" (click)="backToHome()"></app-button>
+    <app-button type="default" content="Voltar" (click)="backToSignin()"></app-button>
 
     <section>
-      <h1>Entrar</h1>
+      <h1>Cadastro</h1>
 
-      <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="item">
+          <label for="name">Nome</label>
+          <input
+            class="input-global"
+            type="text"
+            name="name"
+            id="name"
+            formControlName="name"
+            required
+            autocomplete="off"
+          />
+        </div>
+
         <div class="item">
           <label for="email">Email</label>
           <input
@@ -34,10 +45,12 @@
         </div>
 
         <div class="footer">
-          <a (click)="goToSignup()">Cadastre-se</a>
-          <app-button type="default" content="Entrar"></app-button>
+          <span></span>
+          <app-button type="default" content="Cadastrar"></app-button>
         </div>
       </form>
     </section>
   </div>
+
+  <section class="banner"></section>
 </main>

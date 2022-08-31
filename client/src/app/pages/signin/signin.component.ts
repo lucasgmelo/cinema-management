@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { AuthService, User } from 'src/app/services/auth/auth.service';
 
@@ -10,7 +11,12 @@ import { AuthService, User } from 'src/app/services/auth/auth.service';
   styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent implements OnInit {
-  constructor(private authService: AuthService, private route: Router, private formBuilder: FormBuilder) {}
+  constructor(
+    private authService: AuthService,
+    private route: Router,
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     const currentUser: User = JSON.parse(localStorage.getItem('user') || '{}');
@@ -26,11 +32,15 @@ export class SigninComponent implements OnInit {
     this.route.navigate(['/']);
   }
 
+  goToSignup() {
+    this.route.navigate(['/cadastro']);
+  }
+
   onSubmit(): void {
     const { email, password } = this.signinForm.value;
 
     if (this.authService.signIn(email!, password!)) {
       this.route.navigate(['/']);
-    } else alert('falhou');
+    } else this.toastr.error('Erro na autenticação', 'Login ou senha inválidos');
   }
 }
