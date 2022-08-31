@@ -11,4 +11,17 @@ button{
     &:hover{
         opacity: 0.9;
     }
+
+    &.outline{
+        background: transparent;
+        border: 2px solid var(--primary);
+    }
+
+    &.disabled{
+        background: var(--gray);
+        cursor: not-allowed;
+        &:hover{
+            opacity: 1;
+        }
+    }
 }
