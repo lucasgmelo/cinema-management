@@ -28,9 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/scss/styles.scss",
-              "src/scss/toastr.scss",
-              "node_modules/ngx-toastr/toastr.css"
+              "src/scss/styles.scss"
             ],
             "scripts": []
           },
@@ -98,9 +96,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/scss/styles.scss",
-              "src/scss/toastr.scss",
-              "node_modules/ngx-toastr/toastr.css"
+              "src/scss/styles.scss"
             ],
             "scripts": []
           }
