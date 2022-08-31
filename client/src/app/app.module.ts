@@ -7,6 +7,7 @@ import { NavbarComponent } from './common/navbar/navbar.component';
 import { BadgeComponent } from './common/badge/badge.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ButtonComponent } from './common/button/button.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HomeComponent } from './pages/home/home.component';
     NavbarComponent,
     BadgeComponent,
     CheckoutComponent,
-    HomeComponent
+    HomeComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
