@@ -44,3 +44,65 @@
     }
 
 }
+
+.seats {
+
+    h2 {
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    & > p {
+        margin: 32px 0;
+        font-weight: 600;
+    }
+
+    div {
+        width: 700px;
+        display: flex;
+        align-items: center;
+
+        div {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            margin-right: 16px;
+            
+            background: var(--gray);
+            
+        }
+
+        #selecionado {
+            margin-left: 16px;
+            background: var(--orange);
+        }
+
+        #indisponivel {
+            margin-left: 16px;
+            background: #696D7B;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+
+    }
+
+
+}
+
+.screen {
+
+    margin-top: 96px;
+    margin-bottom: 80px;
+
+    #tela{
+        width: 600px;
+        height: 100px;
+        background: linear-gradient(180deg, rgba(255, 107, 0, 0.4) -124.5%, rgba(255, 107, 0, 0) 100%);
+        border-top: 4px solid rgba(255, 107, 0, 0.8);
+        border-radius: 25px;
+        margin-left: 32%;
+    }
+}
