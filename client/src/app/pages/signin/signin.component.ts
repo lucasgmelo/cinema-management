@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService, User } from 'src/app/services/auth/auth.service';
+import Toast from 'src/app/toastConfig';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signin',
@@ -35,6 +37,11 @@ export class SigninComponent implements OnInit {
 
     if (this.authService.signIn(email!, password!)) {
       this.route.navigate(['/']);
-    } else alert('erro');
+    } else
+      Toast.fire({
+        icon: 'error',
+        title: 'Login ou senha incorretos',
+        timer: 0,
+      });
   }
 }
