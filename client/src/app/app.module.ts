@@ -12,6 +12,8 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { ManagementComponent } from './pages/management/management.component';
+import { ManagementCardComponent } from './components/management-card/management-card.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { SignupComponent } from './pages/signup/signup.component';
     HomeComponent,
     SigninComponent,
     SignupComponent,
+    ManagementComponent,
+    ManagementCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [],

@@ -80,6 +80,11 @@ button.btn {
   font-size: 16px;
   color: var(--white);
   transition: all 0.3s ease;
+
+  &.small {
+    font-size: 14px;
+  }
+
   &:hover {
     opacity: 0.9;
   }
