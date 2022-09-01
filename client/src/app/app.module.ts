@@ -14,6 +14,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ManagementComponent } from './pages/management/management.component';
 import { ManagementCardComponent } from './components/management-card/management-card.component';
+import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ManagementCardComponent } from './components/management-card/management
     SignupComponent,
     ManagementComponent,
     ManagementCardComponent,
+    AddMovieComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [],
