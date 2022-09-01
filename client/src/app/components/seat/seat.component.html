@@ -1,1 +1,5 @@
-<button [ngClass]="{ '': state == 'default', selected: state == 'selected' }" (click)="toggle()"></button>
+<button
+  [disabled]="isDisabled === true"
+  [ngClass]="{ '': state == 'default', selected: state == 'selected' }"
+  (click)="toggle()"
+></button>

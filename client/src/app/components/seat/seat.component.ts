@@ -12,7 +12,9 @@ export class SeatComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.isDisabled);
+  }
 
   toggle() {
     if (this.state == 'default') {
