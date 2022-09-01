@@ -7,6 +7,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ManagementComponent } from './pages/management/management.component';
 import { AddMovieComponent } from './pages/add-movie/add-movie.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'cadastro', component: SignupComponent },
   { path: 'gerenciar', component: ManagementComponent },
   { path: 'adicionar-filme', component: AddMovieComponent },
+  { path: 'pagamento', component: PaymentComponent },
 ];
 
 @NgModule({
