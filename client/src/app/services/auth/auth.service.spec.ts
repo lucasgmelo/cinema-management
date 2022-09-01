@@ -14,36 +14,22 @@ describe('AuthService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should be able to signIn as a customer', () => {
-    service.signIn('John', 'customer');
-
-    expect(service.user.name).toBe('John');
-    expect(service.user.access).toBe('customer');
-  });
-  
-  it('should be able to signIn as a manager', () => {
-    service.signIn('Teddy', 'manager');
-    
-    expect(service.user.name).toBe('Teddy');
-    expect(service.user.access).toBe('manager');
-  });
-
   it('should be able to set localStorage when signIn', fakeAsync(() => {
     localStorage.removeItem('user');
 
     tick(50);
 
-    service.signIn('John', 'manager');
+    service.signIn('ada@gmail.com', '123123');
 
     tick(50);
 
-    expect(JSON.parse(localStorage.getItem('user') || '{}').name).toBe('John');
+    expect(JSON.parse(localStorage.getItem('user') || '{}').name).toBe('Ada');
   }));
 
   it('should be able to logout', fakeAsync(() => {
     service.signIn('John', 'manager');
 
-    service.logout()
+    service.logout();
 
     expect(service.user.name).toBe(null);
     expect(service.user.access).toBe('guest');
@@ -54,7 +40,7 @@ describe('AuthService', () => {
 
     service.signIn('John', 'manager');
 
-    service.logout()
+    service.logout();
 
     expect(JSON.parse(localStorage.getItem('user') || '{}')).toEqual({});
   }));
