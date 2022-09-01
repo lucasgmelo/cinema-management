@@ -17,6 +17,7 @@ import { ManagementCardComponent } from './components/management-card/management
 import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 import { TicketsComponent } from './pages/tickets/tickets.component';
 import { TicketCardComponent } from './components/ticket-card/ticket-card.component';
+import { SeatComponent } from './components/seat/seat.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { TicketCardComponent } from './components/ticket-card/ticket-card.compon
     AddMovieComponent,
     TicketsComponent,
     TicketCardComponent,
+    SeatComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [],
