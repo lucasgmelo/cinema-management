@@ -96,6 +96,11 @@
 
     margin-top: 96px;
     margin-bottom: 80px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
 
     #tela{
         width: 600px;
@@ -103,7 +108,6 @@
         background: linear-gradient(180deg, rgba(255, 107, 0, 0.4) -124.5%, rgba(255, 107, 0, 0) 100%);
         border-top: 4px solid rgba(255, 107, 0, 0.8);
         border-radius: 25px;
-        margin-left: 32%;
     }
 }
 
