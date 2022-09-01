@@ -3,7 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService, User } from 'src/app/services/auth/auth.service';
-import Swal from 'sweetalert2';
+import Toast from 'src/app/toastConfig';
 
 @Component({
   selector: 'app-signin',
@@ -31,24 +31,19 @@ export class SigninComponent implements OnInit {
     this.route.navigate(['/cadastro']);
   }
 
+  onChangeEmail() {}
+
   onSubmit(): void {
     const { email, password } = this.signinForm.value;
 
     if (this.authService.signIn(email!, password!)) {
       this.route.navigate(['/']);
-    } else
-      Swal.fire({
+    } else {
+      console.log('here');
+      Toast.fire({
         icon: 'error',
         title: 'Login ou senha incorretos',
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer);
-          toast.addEventListener('mouseleave', Swal.resumeTimer);
-        },
       });
+    }
   }
 }

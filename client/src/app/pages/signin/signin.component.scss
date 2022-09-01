@@ -42,6 +42,11 @@ form {
   flex-direction: column;
 }
 
+label span {
+  margin-left: 4px;
+  color: var(--error);
+}
+
 .item {
   width: 100%;
   display: flex;
@@ -52,7 +57,7 @@ form {
 
     margin-top: 8px;
 
-    padding: 4px 8px;
+    padding: 8px 16px;
     border-radius: 5px;
   }
 
@@ -70,4 +75,8 @@ form {
 
 .footer {
   @include flex(space-between, center);
+
+  a {
+    text-decoration: underline;
+  }
 }

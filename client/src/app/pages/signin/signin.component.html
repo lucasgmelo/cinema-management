@@ -2,14 +2,14 @@
   <section class="banner"></section>
 
   <div class="container">
-    <app-button type="default" content="Voltar" (click)="backToHome()"></app-button>
+    <button type="button" class="btn" (click)="backToHome()">Voltar</button>
 
     <section>
       <h1>Entrar</h1>
 
       <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
         <div class="item">
-          <label for="email">Email</label>
+          <label for="email">Email<span>*</span></label>
           <input
             class="input-global"
             type="email"
@@ -22,7 +22,7 @@
         </div>
 
         <div class="item">
-          <label for="password">Senha</label>
+          <label for="password">Senha<span>*</span></label>
           <input
             class="input-global"
             type="password"
@@ -35,7 +35,7 @@
 
         <div class="footer">
           <a (click)="goToSignup()">Cadastre-se</a>
-          <app-button type="default" content="Entrar"></app-button>
+          <button type="submit" class="btn">Entrar</button>
         </div>
       </form>
     </section>
