@@ -56,11 +56,48 @@ main.page-container {
   padding: 24px 64px;
 }
 
-input.input-global {
+.form-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  input,
+  select {
+    min-width: 200px;
+
+    margin-top: 8px;
+
+    padding: 8px 16px;
+    border-radius: 5px;
+  }
+
+  & + .form-item {
+    margin: 16px 0 24px;
+  }
+
+  label span {
+    margin-left: 4px;
+    color: var(--error);
+  }
+}
+
+.input-global {
   background: var(--white);
   border-radius: 5px;
   font-family: 'Inter', sans-serif;
   border: 0;
+
+  font-size: 14px;
+  min-width: 230px;
+  padding: 8px 16px;
+
+  border-bottom: 2px solid var(--primary);
+}
+
+#form-error {
+  color: red;
+  font-weight: 600;
+  margin-top: 8px;
   font-size: 14px;
 }
 

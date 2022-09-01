@@ -1,0 +1,40 @@
+h1 {
+  margin-top: 16px;
+  font-size: 24px;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .column {
+    max-width: 300px;
+    padding: 24px 0 0;
+  }
+
+  & > button {
+    grid-column: 2;
+    width: max-content;
+    justify-self: flex-end;
+  }
+}
+
+.session-item {
+  display: flex;
+  flex-direction: column;
+
+  label + select,
+  label + input {
+    margin-bottom: 16px;
+  }
+}
+
+.subtitle {
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.text-aux {
+  margin-bottom: 12px;
+}
