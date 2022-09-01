@@ -16,6 +16,9 @@ import { ManagementComponent } from './pages/management/management.component';
 import { ManagementCardComponent } from './components/management-card/management-card.component';
 import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { TicketsComponent } from './pages/tickets/tickets.component';
+import { TicketCardComponent } from './components/ticket-card/ticket-card.component';
+import { SeatComponent } from './components/seat/seat.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { PaymentComponent } from './pages/payment/payment.component';
     ManagementCardComponent,
     AddMovieComponent,
     PaymentComponent,
+    TicketsComponent,
+    TicketCardComponent,
+    SeatComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [],
