@@ -1,4 +1,94 @@
 <app-navbar></app-navbar>
 <main class="page-container">
-  <p>add-movie works!</p>
+  <button class="btn small">Voltar</button>
+  <h1>Adicionar filme</h1>
+  <form class="form-container">
+    <div class="column">
+      <div class="form-item">
+        <label for="name">Nome do filme<span>*</span></label>
+        <input
+          class="input-global"
+          type="text"
+          name="name"
+          id="name"
+          required
+          autocomplete="off"
+          placeholder="ex: John Doe"
+        />
+      </div>
+      <div class="form-item">
+        <label for="director">Diretor<span>*</span></label>
+        <input
+          class="input-global"
+          type="text"
+          name="director"
+          id="director"
+          required
+          autocomplete="off"
+          placeholder="ex: Taylor Abramov"
+        />
+      </div>
+
+      <div class="form-item">
+        <label for="duration">Duração<span>*</span></label>
+        <input
+          class="input-global"
+          type="text"
+          name="duration"
+          id="duration"
+          required
+          autocomplete="off"
+          placeholder="ex: 120min"
+        />
+      </div>
+
+      <div class="form-item">
+        <label for="image-link">Banner<span>*</span></label>
+        <input
+          class="input-global"
+          type="text"
+          name="image-link"
+          id="image-link"
+          required
+          autocomplete="off"
+          placeholder="Link da imagem"
+        />
+      </div>
+      <div class="form-item">
+        <label for="start-date">Data de início<span>*</span></label>
+        <input class="input-global" type="date" name="start-date" id="start-date" required autocomplete="off" />
+      </div>
+      <div class="form-item">
+        <label for="final-date">Data final<span>*</span></label>
+        <input class="input-global" type="date" name="final-date" id="final-date" required autocomplete="off" />
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="form-item">
+        <h4 class="subtitle">Sessões</h4>
+
+        <div class="session">
+          <p class="text-aux">Sessão 1</p>
+
+          <div class="session-items">
+            <div class="session-item">
+              <label for="final-date">Sala<span>*</span></label>
+              <select name="room1" id="room1" class="input-global">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+
+              <label for="final-date">Horário<span>*</span></label>
+              <input type="time" name="room1" id="room1" class="input-global" />
+            </div>
+            <button class="btn small">Adicionar nova sessão</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn">Adicionar</button>
+  </form>
 </main>
