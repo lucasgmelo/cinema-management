@@ -38,7 +38,8 @@ export class SigninComponent implements OnInit {
 
     if (this.authService.signIn(email!, password!)) {
       this.route.navigate(['/']);
-    } else
+    } else {
+      console.log('here');
       Swal.fire({
         icon: 'error',
         title: 'Login ou senha incorretos',
@@ -52,5 +53,6 @@ export class SigninComponent implements OnInit {
           toast.addEventListener('mouseleave', Swal.resumeTimer);
         },
       });
+    }
   }
 }

@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { BadgeComponent } from './common/badge/badge.component';
-import { ButtonComponent } from './common/button/button.component';
 
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -21,7 +20,6 @@ import { SignupComponent } from './pages/signup/signup.component';
     BadgeComponent,
     CheckoutComponent,
     HomeComponent,
-    ButtonComponent,
     SigninComponent,
     SignupComponent,
   ],

@@ -48,7 +48,7 @@ button {
 
 a {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -68,4 +68,32 @@ input.input-global {
   color: var(--contrast-1) !important;
   background: var(--white) !important;
   font-size: 14px !important;
+}
+
+button.btn {
+  padding: 8px 16px;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #303853 0%, #a6acc1 371.43%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--white);
+  transition: all 0.3s ease;
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &.outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+  }
+
+  &:disabled {
+    background: var(--gray);
+    cursor: not-allowed;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
