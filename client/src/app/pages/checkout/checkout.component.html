@@ -1,69 +1,58 @@
 <app-navbar></app-navbar>
 
 <main class="page-container">
+  <section class="tickets">
+    <h2>Compra de ingressos</h2>
 
-    <section class="tickets">
+    <div>
+      <div class="header">
+        <p>Tipo</p>
+        <p>Valor</p>
+        <p>Quantidade</p>
+      </div>
 
-        <h2>Compra de ingressos</h2>
-    
-        <div>
-            
-            <div class="header">
-                <p>Tipo</p>
-                <p>Valor</p>
-                <p>Quantidade</p>
-            </div>
+      <div>
+        <p>inteira</p>
+        <p>16,00</p>
+        <p>2 ingressos</p>
+      </div>
 
-            <div>
-                <p>inteira</p>
-                <p>16,00</p>
-                <p>2 ingressos</p>
-            </div>
+      <div>
+        <p>inteira</p>
+        <p>16,00</p>
+        <p>2 ingressos</p>
+      </div>
+    </div>
 
-            <div>
-                <p>inteira</p>
-                <p>16,00</p>
-                <p>2 ingressos</p>
-            </div>
+    <p>Subtotal<span>32,00</span></p>
+  </section>
 
-        </div>
-    
-        <p>Subtotal<span>32,00</span></p>
-    
-    </section>
+  <section class="seats">
+    <h2>Escolha de assentos</h2>
 
-    <section class="seats">
+    <p>Legenda</p>
 
-        <h2>Escolha de assentos</h2>
+    <div>
+      <div></div>
 
-        <p>Legenda</p>
+      <p>Disponível</p>
 
-        <div>
+      <div id="selecionado"></div>
 
-            <div></div>
+      <p>Selecionado</p>
 
-            <p>Disponível</p>
+      <div id="indisponivel"></div>
 
-            <div id="selecionado"></div>
+      <p>Indisponível</p>
+    </div>
+  </section>
 
-            <p>Selecionado</p>
+  <section class="screen">
+    <div id="tela"></div>
 
-            <div id="indisponivel"></div>
-
-            <p>Indisponível</p>
-
-        </div>
-
-    </section>
-
-    <section class="screen">
-
-        <div id="tela"></div>
-
-        <div id="assentos"><app-seat [isDisabled] = "false"></app-seat > <app-seat [isDisabled] = "false"></app-seat ></div>
-
-    </section>
-
+    <div id="assentos">
+      <app-seat [isDisabled]="false"></app-seat>
+      <app-seat [isDisabled]="false"></app-seat>
+    </div>
+  </section>
 </main>
-
-

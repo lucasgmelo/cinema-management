@@ -1,1 +1,1 @@
-<button [ngClass] = "{'':state == 'default' , 'selected':state == 'selected'}" ></button>
+<button [ngClass]="{ '': state == 'default', selected: state == 'selected' }" (click)="toggle()"></button>
