@@ -14,8 +14,16 @@ export class NavbarComponent implements OnInit {
 
   user = this.authService.user;
 
+  goToHomePage() {
+    this.router.navigate(['/']);
+  }
+
   goToLoginPage() {
     this.router.navigate(['/login']);
+  }
+
+  goToManagementPage() {
+    this.router.navigate(['/gerenciar']);
   }
 
   logout() {
