@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { SwiperModule } from 'swiper/angular';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -23,6 +25,7 @@ import { MovieComponent } from './pages/movie/movie.component';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { CardMovieComponent } from './components/card-movie/card-movie.component';
 import { EditPageComponent } from './pages/edit-page/edit-page.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -44,8 +47,9 @@ import { EditPageComponent } from './pages/edit-page/edit-page.component';
     DatepickerComponent,
     CardMovieComponent,
     EditPageComponent,
+    CarouselComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, SwiperModule],
   providers: [],
   bootstrap: [AppComponent],
 })

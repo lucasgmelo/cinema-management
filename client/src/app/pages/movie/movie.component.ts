@@ -33,6 +33,6 @@ export class MovieComponent implements OnInit {
   }
 
   goToCheckout() {
-    this.route.navigate(['/checkout']);
+    this.route.navigate(['/checkout/1']);
   }
 }

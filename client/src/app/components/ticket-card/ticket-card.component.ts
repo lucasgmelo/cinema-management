@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-ticket-card',
@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ticket-card.component.scss']
 })
 export class TicketCardComponent implements OnInit {
+
+  @Input() title !: string;
+  @Input() cover !: string;
+  @Input() theater !: string;
+  @Input() date !: string;
+  @Input() hour !: string;
+  @Input() seats !: string;
 
   constructor() { }
 
