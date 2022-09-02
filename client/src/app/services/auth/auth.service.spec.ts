@@ -10,6 +10,10 @@ describe('AuthService', () => {
     service = TestBed.inject(AuthService);
   });
 
+  afterEach(() => {
+    service.logout();
+  });
+
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
@@ -27,7 +31,7 @@ describe('AuthService', () => {
   }));
 
   it('should be able to logout', fakeAsync(() => {
-    service.signIn('John', 'manager');
+    service.signIn('ada@gmail.com', '123');
 
     service.logout();
 
@@ -38,10 +42,26 @@ describe('AuthService', () => {
   it('should be able to remove localStorage when logout', fakeAsync(() => {
     localStorage.removeItem('user');
 
-    service.signIn('John', 'manager');
+    service.signIn('ada@gmail.com', '123');
 
     service.logout();
 
     expect(JSON.parse(localStorage.getItem('user') || '{}')).toEqual({});
+  }));
+
+  it('should be able to signin as customer', fakeAsync(() => {
+    localStorage.removeItem('user');
+
+    service.signIn('ada@gmail.com', '123');
+
+    expect(JSON.parse(localStorage.getItem('user') || '{}').access).toBe('customer');
+  }));
+
+  it('should be able to signin as manager', fakeAsync(() => {
+    localStorage.removeItem('user');
+
+    service.signIn('pog@gmail.com', '123');
+
+    expect(JSON.parse(localStorage.getItem('user') || '{}').access).toBe('manager');
   }));
 });

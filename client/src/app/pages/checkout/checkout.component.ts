@@ -12,4 +12,24 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  seatData = [...new Array(90)].map((index) => ({
+    id: index,
+    isDisabled: false
+}));
+
+
+  selectedSeats:Number[] = []
+
+  addSeat(id:number){
+
+    this.selectedSeats.push(id)
+
+  }
+
+  removeSeat(id:number){
+
+    this.selectedSeats = this.selectedSeats.filter( (seat) => seat == id )
+
+  }
+
 }

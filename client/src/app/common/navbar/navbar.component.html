@@ -1,5 +1,5 @@
 <nav class="navbar-container">
-  <a (click)="goToHomePage()">
+  <a (click)="goToHomePage()" class="logo">
     <img src="assets/logo.svg" />
   </a>
 
@@ -15,18 +15,18 @@
     <div class="auth">
       <img src="assets/user.svg" alt="Usuário" />
       <p>{{ user.name }}</p>
-      <button (click)="logout()" type="button">
+      <button (click)="logout()" type="button" class="logout-button">
         <img src="assets/logout.svg" alt="Log out" class="logout" />
       </button>
     </div>
   </section>
 
   <section *ngIf="user && user.access == 'customer'">
-    <a>Ingressos</a>
+    <a (click)="goToTicketsPage()">Ingressos</a>
     <div class="auth">
       <img src="assets/user.svg" alt="Usuário" />
       <p>{{ user.name }}</p>
-      <button (click)="logout()" type="button">
+      <button (click)="logout()" type="button" class="logout-button">
         <img src="assets/logout.svg" alt="Log out" class="logout" />
       </button>
     </div>

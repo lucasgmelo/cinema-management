@@ -43,9 +43,21 @@ export class AuthService {
   };
 
   signIn(email: string, password: string) {
-    if (Object.keys(mockedUsers).find((key) => key === email)) {
-      const newName = mockedUsers['ada@gmail.com'].name;
-      const newAccess: 'customer' | 'manager' | 'guest' = mockedUsers['ada@gmail.com'].access;
+    if (email === 'ada@gmail.com') {
+      const newName = mockedUsers[email].name;
+      const newAccess: 'customer' | 'manager' | 'guest' = mockedUsers[email].access;
+
+      localStorage.setItem('user', JSON.stringify({ name: newName, access: newAccess }));
+
+      this.user.name = newName;
+      this.user.access = newAccess;
+
+      return true;
+    }
+
+    if (email === 'pog@gmail.com') {
+      const newName = mockedUsers[email].name;
+      const newAccess: 'customer' | 'manager' | 'guest' = mockedUsers[email].access;
 
       localStorage.setItem('user', JSON.stringify({ name: newName, access: newAccess }));
       this.user.name = newName;

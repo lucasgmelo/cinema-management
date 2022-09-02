@@ -10,6 +10,7 @@ import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { TicketsComponent } from './pages/tickets/tickets.component';
 import { MovieComponent } from './pages/movie/movie.component';
+import { EditPageComponent } from './pages/edit-page/edit-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,10 +19,10 @@ const routes: Routes = [
   { path: 'cadastro', component: SignupComponent },
   { path: 'gerenciar', component: ManagementComponent },
   { path: 'adicionar-filme', component: AddMovieComponent },
+  { path: 'editar-filme', component: EditPageComponent },
   { path: 'pagamento', component: PaymentComponent },
   { path: 'ingressos', component: TicketsComponent },
-  { path: 'movie', component: MovieComponent },
-  
+  { path: 'filme', component: MovieComponent },
 ];
 
 @NgModule({

@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  user = this.authService.user;
+  public user = this.authService.user;
 
   goToHomePage() {
     this.router.navigate(['/']);
@@ -24,6 +24,10 @@ export class NavbarComponent implements OnInit {
 
   goToManagementPage() {
     this.router.navigate(['/gerenciar']);
+  }
+
+  goToTicketsPage() {
+    this.router.navigate(['/ingressos']);
   }
 
   logout() {

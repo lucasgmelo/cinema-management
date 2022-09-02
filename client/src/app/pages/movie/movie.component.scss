@@ -25,6 +25,9 @@
     margin-top: 64px;
     & > div{
         margin: 32px 0px;
+        p {
+            max-width: 800px;
+        }
         p + p {
             margin-top: 12px;
         }
@@ -40,6 +43,21 @@
         justify-content: flex-start;
         app-datepicker + app-datepicker {
             margin-left: 8px;
+        }
+    }
+}
+
+.theater {
+    p {
+        margin-top: 32px;
+    }
+    button {
+        margin-top: 16px;
+    }
+    div {
+        display: flex;
+        button + button {
+            margin-left: 16px;
         }
     }
 }
