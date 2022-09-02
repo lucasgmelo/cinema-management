@@ -1,0 +1,6 @@
+link: 
+titulo:
+sinopse:
+diretor:
+elenco:
+classificação:
