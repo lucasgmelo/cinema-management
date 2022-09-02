@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-tickets',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router, private authService:AuthService) { }
 
   data = [{
     cover: 'https://p2.trrsf.com/image/fget/cf/648/0/images.terra.com/2022/07/07/thor-urhbljnp6asx.jpg',
@@ -35,6 +37,9 @@ export class TicketsComponent implements OnInit {
   }]
 
   ngOnInit(): void {
+    if(this.authService.user.access != 'customer'){
+      this.route.navigate([''])
+    }
   }
 
 }
