@@ -59,12 +59,12 @@ h2 {
       background: var(--gray);
     }
 
-    #selecionado {
+    #selected {
       margin-left: 16px;
       background: var(--orange);
     }
 
-    #indisponivel {
+    #unavailable {
       margin-left: 16px;
       background: #696d7b;
     }
@@ -84,7 +84,7 @@ h2 {
   align-items: center;
   justify-content: center;
 
-  #tela {
+  #display {
     width: 600px;
     height: 100px;
     margin-bottom: 80px;
@@ -93,7 +93,7 @@ h2 {
     border-radius: 25px;
   }
 
-  #assentos {
+  #seats {
     display: grid;
     grid-template-columns: repeat(15, 1fr);
     gap: 12px;

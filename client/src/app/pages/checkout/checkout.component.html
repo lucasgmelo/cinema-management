@@ -16,13 +16,31 @@
       <div>
         <p>inteira</p>
         <p>16,00</p>
-        <p>2 ingressos</p>
+        <select name="seat-selection" id="seat-selection" class="input-global">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+        </select>
       </div>
 
       <div>
         <p>inteira</p>
         <p>16,00</p>
-        <p>2 ingressos</p>
+        <select name="seat-selection" id="seat-selection" class="input-global">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+        </select>
       </div>
     </div>
 
@@ -39,20 +57,20 @@
 
       <p>Disponível</p>
 
-      <div id="selecionado"></div>
+      <div id="selected"></div>
 
       <p>Selecionado</p>
 
-      <div id="indisponivel"></div>
+      <div id="unavailable"></div>
 
       <p>Indisponível</p>
     </div>
   </section>
 
   <section class="screen">
-    <div id="tela"></div>
+    <div id="display"></div>
 
-    <div id="assentos">
+    <div id="seats">
       <app-seat *ngFor="let seat of seatData" [isDisabled]="seat.isDisabled"></app-seat>
     </div>
   </section>
