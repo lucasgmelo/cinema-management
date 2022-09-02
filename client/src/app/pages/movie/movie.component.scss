@@ -1,0 +1,62 @@
+.title {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 51px;
+    .cover{
+        width: 300px;
+        height: 375px;
+        background-color: var(--gray);
+        border-radius: 5px;
+        margin-right: 56px;
+    }
+    .snaps{
+        & > div {
+            margin-top: 16px;
+            display: flex;
+            app-badge + app-badge{
+                margin-left: 16px;
+            }
+        }
+    }
+}
+
+.info {
+    margin-top: 64px;
+    & > div{
+        margin: 32px 0px;
+        p {
+            max-width: 800px;
+        }
+        p + p {
+            margin-top: 12px;
+        }
+    }
+}
+
+.datepick {
+    h3 {
+        margin-bottom: 23px;
+    }
+    & > div{
+        display: flex;
+        justify-content: flex-start;
+        app-datepicker + app-datepicker {
+            margin-left: 8px;
+        }
+    }
+}
+
+.theater {
+    p {
+        margin-top: 32px;
+    }
+    button {
+        margin-top: 16px;
+    }
+    div {
+        display: flex;
+        button + button {
+            margin-left: 16px;
+        }
+    }
+}

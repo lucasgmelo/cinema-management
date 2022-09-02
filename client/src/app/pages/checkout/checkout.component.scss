@@ -93,13 +93,6 @@
 
 }
 
-#assentos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-}
-
-
 .screen {
 
     margin-top: 96px;
@@ -113,9 +106,28 @@
     #tela{
         width: 600px;
         height: 100px;
+        margin-bottom: 80px;
         background: linear-gradient(180deg, rgba(255, 107, 0, 0.4) -124.5%, rgba(255, 107, 0, 0) 100%);
         border-top: 4px solid rgba(255, 107, 0, 0.8);
         border-radius: 25px;
+    }
+
+    #assentos {
+        display: grid;
+        grid-template-columns: repeat(15, 1fr);
+        gap: 12px;
+    }
+    
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+
+    p{
+        font-size: 20px;
+        font-weight: 600;
     }
 }
 

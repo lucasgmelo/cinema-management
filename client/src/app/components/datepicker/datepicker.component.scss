@@ -1,0 +1,18 @@
+button {
+    display: inline-block;
+    border-radius: 5px;
+    background: var(--contrast-1);
+    font-weight: 400;
+    color: var(--white);
+    border: 0px;
+    padding: 24px 32px;
+    div {
+        display: flex;
+        justify-content: center;
+    }
+
+    &.selected {
+        border-bottom: 2px solid var(--primary);
+        font-weight: 500;
+    }
+}
