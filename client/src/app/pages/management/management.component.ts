@@ -8,7 +8,6 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./management.component.scss'],
 })
 export class ManagementComponent implements OnInit {
-<<<<<<< HEAD
   data = [
     {
       cover: 'https://p2.trrsf.com/image/fget/cf/648/0/images.terra.com/2022/07/07/thor-urhbljnp6asx.jpg',
@@ -36,17 +35,12 @@ export class ManagementComponent implements OnInit {
     },
   ];
 
-  constructor(private route: Router) {}
-=======
-  constructor(private route: Router, private authService:AuthService) {}
->>>>>>> c414f6ded2e92f869ff6ccd13df5d062f6a745ef
+  constructor(private route: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
-
-    if(this.authService.user.access != 'manager'){
-      this.route.navigate([''])
+    if (this.authService.user.access != 'manager') {
+      this.route.navigate(['']);
     }
-
   }
 
   goToAddMoviePage() {
