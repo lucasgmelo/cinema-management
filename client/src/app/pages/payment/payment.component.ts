@@ -13,7 +13,7 @@ export class PaymentComponent implements OnInit {
   ngOnInit(): void {}
 
   goBack() {
-    this.route.navigate(['checkout']);
+    this.route.navigate(['checkout/1']);
   }
 
   onSubmit() {
