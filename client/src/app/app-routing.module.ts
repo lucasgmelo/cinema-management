@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'adicionar-filme', component: AddMovieComponent },
   { path: 'pagamento', component: PaymentComponent },
   { path: 'ingressos', component: TicketsComponent },
-  { path: 'movie', component: MovieComponent },
+  { path: 'filme', component: MovieComponent },
   
 ];
 
