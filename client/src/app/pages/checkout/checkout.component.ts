@@ -12,9 +12,10 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  seatData = [...new Array(90)].map((index) => ({
+  seatData = [...new Array(90)].map((_,index) => ({
     id: index,
-    isDisabled: false
+    isDisabled: false,
+    isSelected: false
 }));
 
 
@@ -23,12 +24,27 @@ export class CheckoutComponent implements OnInit {
   addSeat(id:number){
 
     this.selectedSeats.push(id)
-
+    
   }
 
   removeSeat(id:number){
 
-    this.selectedSeats = this.selectedSeats.filter( (seat) => seat == id )
+    this.selectedSeats = this.selectedSeats.filter( (seat) => seat != id )
+
+  }
+
+  toggleSeat(id:any){
+
+    if(this.seatData[id].isSelected){
+      this.removeSeat(id)
+    }
+    else if(!this.seatData[id].isSelected){
+      this.addSeat(id)
+    }
+
+    this.seatData[id].isSelected = !this.seatData[id].isSelected
+
+    console.log(this.selectedSeats);
 
   }
 
