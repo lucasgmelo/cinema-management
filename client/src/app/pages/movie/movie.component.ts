@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,4 +19,11 @@ export class MovieComponent implements OnInit {
     this.selectedDay = id;
   }
 
+  goBackToHome() {
+    this.route.navigate(['']);
+  }
+
+  goToCheckout() {
+    this.route.navigate(['/checkout']);
+  }
 }
