@@ -19,6 +19,8 @@ import { PaymentComponent } from './pages/payment/payment.component';
 import { TicketsComponent } from './pages/tickets/tickets.component';
 import { TicketCardComponent } from './components/ticket-card/ticket-card.component';
 import { SeatComponent } from './components/seat/seat.component';
+import { MovieComponent } from './pages/movie/movie.component';
+import { DatepickerComponent } from './components/datepicker/datepicker.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { SeatComponent } from './components/seat/seat.component';
     TicketsComponent,
     TicketCardComponent,
     SeatComponent,
+    MovieComponent,
+    DatepickerComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [],
