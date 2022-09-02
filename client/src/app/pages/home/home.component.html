@@ -5,8 +5,11 @@
   <div> </div>
   <h2 class="in-theater">Em Cartaz</h2>
   
-  <app-card-movie></app-card-movie>
-  <app-card-movie></app-card-movie>
-  <app-card-movie></app-card-movie>
+  <app-card-movie *ngFor="let movie of data" 
+  movieCover = {{movie.cover}} 
+  movieTitle = {{movie.title}} 
+  synopsis = {{movie.synopsis}} 
+  duration = {{movie.duration}} 
+  genre = {{movie.genre}}></app-card-movie>
   
 </main>
