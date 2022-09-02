@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
+
+  @Input() movieCover !: string;
+  @Input() movieTitle !: string; 
+  @Input() duration !: string;
+  @Input() genre !: string;
+  @Input() synopsis !: string;
+  @Input() director !: string;
+  @Input() cast !: string;
+  @Input() pr !: string;
 
   constructor(private route: Router) { }
 

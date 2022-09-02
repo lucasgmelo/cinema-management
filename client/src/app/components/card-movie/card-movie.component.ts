@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-card-movie',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-movie.component.scss']
 })
 export class CardMovieComponent implements OnInit {
+
+  @Input() movieCover !: string;
+  @Input() movieTitle !: string; 
+  @Input() synopsis !: string;
+  @Input() duration !: string;
+  @Input() genre !: string;
 
   constructor() { }
 

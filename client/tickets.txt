@@ -1,0 +1,21 @@
+cover: https://p2.trrsf.com/image/fget/cf/648/0/images.terra.com/2022/07/07/thor-urhbljnp6asx.jpg
+filme: Thor: Amor e Trovão
+Sala: Sala 3
+Data: 06/09/2022
+Hora: 17:00
+Assentos: C4, C5
+
+cover: https://br.web.img2.acsta.net/pictures/22/05/18/09/51/0772429.jpg
+filme: Elvis
+Sala: Sala 2
+Data: 18/07/2022
+Hora: 19:00
+Assentos: F9, F10, F11
+
+cover: https://www.claquete.com.br/fotos/filmes/poster/14943_medio.jpg
+filme: Pinocchio: O Menino De Madeira
+Sala: Sala 4
+Data: 12/09/2022
+Hora: 19:30
+Assentos: D7, D8
+
