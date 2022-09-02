@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <main class="page-container">
-  <button routerLink="/filme/1" class="btn">Voltar</button>
+  <button routerLink="/filme/1" class="btn small">Voltar</button>
 
   <section class="tickets">
     <h2>Compra de ingressos</h2>
@@ -14,7 +14,7 @@
       </div>
 
       <div>
-        <p>inteira</p>
+        <p>Meia</p>
         <p>16,00</p>
         <select name="seat-selection" id="seat-selection" class="input-global">
           <option value="1">1</option>
@@ -29,8 +29,8 @@
       </div>
 
       <div>
-        <p>inteira</p>
-        <p>16,00</p>
+        <p>Inteira</p>
+        <p>32,00</p>
         <select name="seat-selection" id="seat-selection" class="input-global">
           <option value="1">1</option>
           <option value="2">2</option>
@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <p>Subtotal<span>32,00</span></p>
+    <p>Subtotal<span>R$0,00</span></p>
   </section>
 
   <section class="seats">
@@ -71,14 +71,19 @@
     <div id="display"></div>
 
     <div id="seats">
-      <app-seat *ngFor="let seat of seatData" [isDisabled]="seat.isDisabled" [isSelected]="seat.isSelected" (click)="toggleSeat(seat.id)" ></app-seat>
+      <app-seat
+        *ngFor="let seat of seatData"
+        [isDisabled]="seat.isDisabled"
+        [isSelected]="seat.isSelected"
+        (click)="toggleSeat(seat.id)"
+      ></app-seat>
     </div>
   </section>
 
   <div class="footer">
     <div>
       <p>Escolhidos:</p>
-      <p>{{selectedSeats.join(", ")}}</p>
+      <p>{{ selectedSeats.join(', ') }}</p>
     </div>
 
     <button routerLink="/pagamento" class="btn">Continuar para pagamento</button>

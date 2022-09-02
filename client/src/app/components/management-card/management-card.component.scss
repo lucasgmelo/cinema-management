@@ -9,14 +9,17 @@
   display: flex;
   flex-direction: column;
 
+  min-height: 250px;
+
   & > div {
     display: flex;
 
     .img {
-      width: 64px;
-      height: auto;
+      width: 80px;
+      height: 100px;
 
       background: #333;
+      background-size: cover;
 
       margin-right: 16px;
     }

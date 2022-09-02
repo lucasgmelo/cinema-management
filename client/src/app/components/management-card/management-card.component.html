@@ -1,13 +1,13 @@
 <div class="card">
-  <h4>Nome do Filme</h4>
+  <h4>{{ title }}</h4>
   <div>
-    <div class="img"></div>
+    <img src="{{ cover }}" class="img" />
     <div class="info">
       <div class="room-info">
-        <p>Salas 3 - 15h, 18h</p>
-        <p>Salas 4 - 13h, 18h</p>
+        <p>{{ theater }} - {{ hour }}</p>
+        <p>{{ theater }} - {{ hour }}</p>
       </div>
-      <p class="deadline">Até 23/08/22</p>
+      <p class="deadline">Até 25/08/22</p>
     </div>
   </div>
   <button class="btn small" (click)="goToEditPage()">Editar</button>

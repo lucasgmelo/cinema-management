@@ -5,11 +5,14 @@
     <button class="btn" (click)="goToAddMoviePage()">Adicionar filme</button>
   </div>
   <section class="card-container">
-    <app-management-card></app-management-card>
-    <app-management-card></app-management-card>
-    <app-management-card></app-management-card>
-    <app-management-card></app-management-card>
-    <app-management-card></app-management-card>
-    <app-management-card></app-management-card>
+    <app-management-card
+      *ngFor="let ticket of data"
+      cover="{{ ticket.cover }}"
+      title="{{ ticket.title }}"
+      theater="{{ ticket.theater }}"
+      date="{{ ticket.date }}"
+      hour="{{ ticket.hour }}"
+      seats="{{ ticket.seats }}"
+    ></app-management-card>
   </section>
 </main>

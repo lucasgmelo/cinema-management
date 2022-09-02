@@ -1,54 +1,103 @@
 <app-navbar></app-navbar>
 
-<main class = 'page-container'>
-    <button class="btn" (click) = "goBackToHome()">Voltar</button>
-    <section class="title">
-        <img class='cover' src="https://p2.trrsf.com/image/fget/cf/648/0/images.terra.com/2022/07/07/thor-urhbljnp6asx.jpg" alt="">
-        <div class="snaps">
-            <h2>Thor: Amor e Trovão</h2>
-            <div>
-                <app-badge content="119 min"></app-badge>
-                <app-badge content="Ação, Aventura, Fantasia"></app-badge>
-            </div>
-        </div>
-    </section>
+<main class="page-container">
+  <button class="btn small" (click)="goBackToHome()">Voltar</button>
+  <section class="title">
+    <img
+      class="cover"
+      src="https://p2.trrsf.com/image/fget/cf/648/0/images.terra.com/2022/07/07/thor-urhbljnp6asx.jpg"
+      alt=""
+    />
+    <div class="snaps">
+      <h2>Thor: Amor e Trovão</h2>
+      <div>
+        <app-badge content="119 min"></app-badge>
+        <app-badge content="Ação, Aventura, Fantasia"></app-badge>
+      </div>
+    </div>
+  </section>
 
-    <section class = 'info'>
-        <h3>Sinopse</h3>
-        <div>
-            <p>O filme apresenta Thor em uma jornada diferente de tudo que ele já enfrentou – uma busca pela paz interior. Mas sua aposentadoria é interrompida por um assassino galático conhecido como Gorr, o Carniceiro dos Deuses, que busca a extinção dos deuses. Para combater a ameaça, Thor pede a ajuda do Rei Valquíria, Korg e da ex-namorada Jane Foster, que – para surpresa de Thor – inexplicavelmente carrega seu martelo mágico, Mjolnir, como a Poderosa Thor. Juntos, eles embarcam em uma alucinante aventura para descobrir o mistério da vingança do Carniceiro dos Deuses e detê-lo antes que seja tarde demais.</p>
-        </div>
+  <section class="info">
+    <h3>Sinopse</h3>
+    <div>
+      <p>
+        O filme apresenta Thor em uma jornada diferente de tudo que ele já enfrentou – uma busca pela paz interior. Mas
+        sua aposentadoria é interrompida por um assassino galático conhecido como Gorr, o Carniceiro dos Deuses, que
+        busca a extinção dos deuses. Para combater a ameaça, Thor pede a ajuda do Rei Valquíria, Korg e da ex-namorada
+        Jane Foster, que – para surpresa de Thor – inexplicavelmente carrega seu martelo mágico, Mjolnir, como a
+        Poderosa Thor. Juntos, eles embarcam em uma alucinante aventura para descobrir o mistério da vingança do
+        Carniceiro dos Deuses e detê-lo antes que seja tarde demais.
+      </p>
+    </div>
 
-        <h3>Informações</h3>
-        <div>
-            <p><b>Diretor:</b> Taika Waititi</p>
-            <p><b>Elenco:</b> Tessa Thompson, Chris Hemsworth, Chris Pratt, Natalie Portman, Melissa McCarthy, Christian Bale, Karen Gillan, Matt Damon, Russell Crowe, Dave Bautista, Sean Gunn</p>
-            <p><b>Classificação:</b> 14 anos</p>
-        </div>
-    </section>
+    <h3>Informações</h3>
+    <div>
+      <p><b>Diretor:</b> Taika Waititi</p>
+      <p>
+        <b>Elenco:</b> Tessa Thompson, Chris Hemsworth, Chris Pratt, Natalie Portman, Melissa McCarthy, Christian Bale,
+        Karen Gillan, Matt Damon, Russell Crowe, Dave Bautista, Sean Gunn
+      </p>
+      <p><b>Classificação:</b> 14 anos</p>
+    </div>
+  </section>
 
-    <section class="datepick">
-        <h3>Sessões Disponíveis</h3>
-        <div>
-            <app-datepicker date = "28/09" when="HOJE" [isSelected] = "0 == selectedDay" (click) = 'changeSelectedDay(0)'></app-datepicker>
-            <app-datepicker date = "29/09" when="AMANHÃ" [isSelected] = "1 == selectedDay" (click) = 'changeSelectedDay(1)'></app-datepicker>
-            <app-datepicker date = "30/09" when="SEGUNDA" [isSelected] = "2 == selectedDay" (click) = 'changeSelectedDay(2)'></app-datepicker>
-            <app-datepicker date = "01/10" when="TERÇA" [isSelected] = "3 == selectedDay" (click) = 'changeSelectedDay(3)'></app-datepicker>
-            <app-datepicker date = "02/10" when="QUARTA" [isSelected] = "4 == selectedDay" (click) = 'changeSelectedDay(4)'></app-datepicker>
-            <app-datepicker date = "03/10" when="QUINTA" [isSelected] = "5 == selectedDay" (click) = 'changeSelectedDay(5)'></app-datepicker>
-            <app-datepicker date = "04/10" when="SEXTA" [isSelected] = "6 == selectedDay" (click) = 'changeSelectedDay(6)'></app-datepicker>
-        </div>
-    </section>
+  <section class="datepick">
+    <h3>Sessões Disponíveis</h3>
+    <div>
+      <app-datepicker
+        date="28/09"
+        when="HOJE"
+        [isSelected]="0 == selectedDay"
+        (click)="changeSelectedDay(0)"
+      ></app-datepicker>
+      <app-datepicker
+        date="29/09"
+        when="AMANHÃ"
+        [isSelected]="1 == selectedDay"
+        (click)="changeSelectedDay(1)"
+      ></app-datepicker>
+      <app-datepicker
+        date="30/09"
+        when="SEGUNDA"
+        [isSelected]="2 == selectedDay"
+        (click)="changeSelectedDay(2)"
+      ></app-datepicker>
+      <app-datepicker
+        date="01/10"
+        when="TERÇA"
+        [isSelected]="3 == selectedDay"
+        (click)="changeSelectedDay(3)"
+      ></app-datepicker>
+      <app-datepicker
+        date="02/10"
+        when="QUARTA"
+        [isSelected]="4 == selectedDay"
+        (click)="changeSelectedDay(4)"
+      ></app-datepicker>
+      <app-datepicker
+        date="03/10"
+        when="QUINTA"
+        [isSelected]="5 == selectedDay"
+        (click)="changeSelectedDay(5)"
+      ></app-datepicker>
+      <app-datepicker
+        date="04/10"
+        when="SEXTA"
+        [isSelected]="6 == selectedDay"
+        (click)="changeSelectedDay(6)"
+      ></app-datepicker>
+    </div>
+  </section>
 
-    <section class="theater">
-        <p>SALA1</p>
-        <div>
-            <button class="btn outline" (click) = "goToCheckout()">14:00</button>
-            <button class="btn" disabled (click) = "goToCheckout()">17:00</button>
-        </div>
-        <p>SALA 3</p>
-        <div>
-            <button class="btn outline" (click) = "goToCheckout()">15:00</button>
-        </div>
-    </section>
+  <section class="theater">
+    <p>SALA1</p>
+    <div>
+      <button class="btn outline" (click)="goToCheckout()">14:00</button>
+      <button class="btn" disabled (click)="goToCheckout()">17:00</button>
+    </div>
+    <p>SALA 3</p>
+    <div>
+      <button class="btn outline" (click)="goToCheckout()">15:00</button>
+    </div>
+  </section>
 </main>

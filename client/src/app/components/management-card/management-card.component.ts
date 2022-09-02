@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./management-card.component.scss'],
 })
 export class ManagementCardComponent implements OnInit {
+  @Input() title!: string;
+  @Input() cover!: string;
+  @Input() theater!: string;
+  @Input() date!: string;
+  @Input() hour!: string;
+  @Input() seats!: string;
+
   constructor(private route: Router) {}
 
   ngOnInit(): void {}
