@@ -22,7 +22,7 @@
   </section>
 
   <section *ngIf="user && user.access == 'customer'">
-    <a>Ingressos</a>
+    <a (click)="goToTicketsPage()">Ingressos</a>
     <div class="auth">
       <img src="assets/user.svg" alt="Usuário" />
       <p>{{ user.name }}</p>

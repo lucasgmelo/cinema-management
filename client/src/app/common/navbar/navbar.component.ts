@@ -26,6 +26,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/gerenciar']);
   }
 
+  goToTicketsPage() {
+    this.router.navigate(['/ingressos']);
+  }
+
   logout() {
     this.authService.logout();
   }

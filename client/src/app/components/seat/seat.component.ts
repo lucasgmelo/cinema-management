@@ -21,6 +21,4 @@ export class SeatComponent implements OnInit {
       this.state = 'default';
     }
   }
-
-
 }

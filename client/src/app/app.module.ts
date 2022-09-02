@@ -21,6 +21,7 @@ import { TicketCardComponent } from './components/ticket-card/ticket-card.compon
 import { SeatComponent } from './components/seat/seat.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
+import { EditPageComponent } from './pages/edit-page/edit-page.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { DatepickerComponent } from './components/datepicker/datepicker.componen
     SeatComponent,
     MovieComponent,
     DatepickerComponent,
+    EditPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [],

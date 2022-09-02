@@ -1,75 +1,71 @@
-h1{
+h1 {
+  font-size: 24px;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+form {
+  max-width: 300px;
+  margin-top: 24px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 38px;
+}
+
+.card {
+  height: 213px;
+  width: 334px;
+  border-radius: 12px;
+  background: var(--white);
+  margin-top: 142px;
+  .chip {
+    background-color: var(--gray);
+    width: 37px;
+    height: 27px;
+    border-radius: 0px 4px 4px 0px;
+    margin-top: 48px;
+    margin-left: 32px;
+  }
+  & > p {
+    color: black;
     font-size: 24px;
-    margin-top: 24px;
-    margin-bottom: 16px;
-}
-
-h2{
-    font-size: 18px;
     font-weight: 600;
-}
-
-form{
-    max-width: 300px;
-    margin-top: 24px;
-}
-
-.footer{
     display: flex;
-    justify-content: flex-end;
-    margin-right: 38px;
-}
-
-.card{
-    height: 213px;
-    width: 334px;
-    border-radius: 12px;
-    background: var(--white);
-    margin-top: 142px;
-    .chip{
-        background-color: var(--gray);
-        width: 37px;
-        height: 27px;
-        border-radius: 0px 4px 4px 0px;
-        margin-top: 48px;
-        margin-left: 32px;
-    }
-    &>p{
-        color: black;
-        font-size: 24px;
-        font-weight: 600;
-        display: flex;
-        justify-content: center;
-        margin-top: 24px;
-    }
-    .nome{
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        padding: 0px 32px;
-        margin-top: 9px;
-
-        h2{
-            color: black;
-            font-size: 18px;
-            font-weight: 500;
-        }
-        .validade{
-            p{
-                color: black;
-                font-size: 16px;
-                font-weight: 500;
-            }
-        }
-    }
-
-
-}
-
-
-
-.pay-card{
+    justify-content: center;
+    margin-top: 24px;
+  }
+  .name {
     display: flex;
     justify-content: space-between;
-    width: 900px;
+    align-items: flex-end;
+    padding: 0px 32px;
+    margin-top: 9px;
+
+    h2 {
+      color: black;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .due-date {
+      p {
+        color: black;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.pay-card {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
 }

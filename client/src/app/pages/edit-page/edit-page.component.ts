@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import Toast from 'src/app/toastConfig';
 
 @Component({
-  selector: 'app-add-movie',
-  templateUrl: './add-movie.component.html',
-  styleUrls: ['./add-movie.component.scss'],
+  selector: 'app-edit-page',
+  templateUrl: './edit-page.component.html',
+  styleUrls: ['./edit-page.component.scss'],
 })
-export class AddMovieComponent implements OnInit {
+export class EditPageComponent implements OnInit {
   constructor(private route: Router) {}
 
   ngOnInit(): void {}
@@ -19,7 +19,7 @@ export class AddMovieComponent implements OnInit {
   onSubmit() {
     Toast.fire({
       icon: 'success',
-      text: 'Filme adicionado com sucesso',
+      text: 'Filme editado com sucesso',
     });
 
     this.route.navigate(['gerenciar']);
