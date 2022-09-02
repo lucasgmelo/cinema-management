@@ -1,82 +1,52 @@
 <app-navbar></app-navbar>
 
 <main class="page-container">
+  <button class="btn small" (click)="goBack()">Voltar</button>
 
-    <button class="btn small">Voltar</button>
+  <div class="pay-card">
+    <div class="pay">
+      <h1>Pagamento</h1>
 
-    <div class="pay-card">
-        <div class="pay">
-            <h1>Pagamento</h1>
+      <h2>Cartão de crédito</h2>
 
-            <h2>Cartão de crédito</h2>
-
-            <form>
-                <div class="form-item">
-                <label for="card">Número do cartão<span>*</span></label>
-                <input
-                    class="input-global"
-                    type="number"
-                    name="card"
-                    id="card"
-                    required
-                    autocomplete="off"
-                />
-                </div>
-
-                <div class="form-item">
-                <label for="nome">Nome do titular<span>*</span></label>
-                <input
-                    class="input-global"
-                    type="text"
-                    name="nome"
-                    id="nome"
-                    required
-                />
-                </div>
-
-                <div class="form-item">
-                    <label for="vencimento">Vencimento<span>*</span></label>
-                    <input
-                    class="input-global"
-                    type="text"
-                    name="vencimento"
-                    id="vencimento"
-                    required
-                    />
-                </div>
-
-                <div class="form-item">
-                    <label for="codigo">CVV<span>*</span></label>
-                    <input
-                    class="input-global"
-                    type="number"
-                    name="codigo"
-                    id="codigo"
-                    required
-                    />
-                </div>
-            </form>
+      <form>
+        <div class="form-item">
+          <label for="card">Número do cartão<span>*</span></label>
+          <input class="input-global" type="number" name="card" id="card" required autocomplete="off" />
         </div>
 
-        <div class="card">
-
-
-            <div class="chip"></div>
-            <p>**** **** **** ****</p>
-
-            <div class="nome">
-                <h2>Ada Heimann</h2>
-                <div class="validade">
-                    <p>VALIDADE</p>
-                    <p>**/****</p>
-                </div>
-            </div>
+        <div class="form-item">
+          <label for="name">Nome do titular<span>*</span></label>
+          <input class="input-global" type="text" name="name" id="name" required />
         </div>
+
+        <div class="form-item">
+          <label for="due-date">Vencimento<span>*</span></label>
+          <input class="input-global" type="text" name="due-date" id="due-date" required />
+        </div>
+
+        <div class="form-item">
+          <label for="code">CVV<span>*</span></label>
+          <input class="input-global" type="number" name="code" id="code" required />
+        </div>
+      </form>
     </div>
 
-    <div class="footer">
-        <button type="submit" class="btn">Finalizar pagamento</button>
+    <div class="card">
+      <div class="chip"></div>
+      <p>**** **** **** ****</p>
+
+      <div class="name">
+        <h2>Ada Heimann</h2>
+        <div class="due-date">
+          <p>VALIDADE</p>
+          <p>**/****</p>
+        </div>
+      </div>
     </div>
+  </div>
 
-
+  <div class="footer">
+    <button type="submit" class="btn" (click)="onSubmit()">Finalizar pagamento</button>
+  </div>
 </main>

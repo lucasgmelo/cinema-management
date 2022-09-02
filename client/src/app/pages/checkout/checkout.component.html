@@ -1,8 +1,7 @@
 <app-navbar></app-navbar>
 
 <main class="page-container">
-
-  <button routerLink="/movie" class="btn">Voltar</button>
+  <button routerLink="/filme" class="btn">Voltar</button>
 
   <section class="tickets">
     <h2>Compra de ingressos</h2>
@@ -54,21 +53,16 @@
     <div id="tela"></div>
 
     <div id="assentos">
-
-      <app-seat *ngFor="let seat of seatData;" [isDisabled]="seat.isDisabled"></app-seat>
-
+      <app-seat *ngFor="let seat of seatData" [isDisabled]="seat.isDisabled"></app-seat>
     </div>
   </section>
 
   <div class="footer">
-
     <div>
       <p>Escolhidos:</p>
       <p>C4, C5</p>
     </div>
 
     <button routerLink="/pagamento" class="btn">Continuar para pagamento</button>
-
   </div>
-
 </main>

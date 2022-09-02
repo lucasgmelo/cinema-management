@@ -22,6 +22,7 @@ import { SeatComponent } from './components/seat/seat.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { CardMovieComponent } from './components/card-movie/card-movie.component';
+import { EditPageComponent } from './pages/edit-page/edit-page.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { CardMovieComponent } from './components/card-movie/card-movie.component
     MovieComponent,
     DatepickerComponent,
     CardMovieComponent,
+    EditPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [],
