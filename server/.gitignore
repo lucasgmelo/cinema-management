@@ -1,0 +1,13 @@
+.env
+/node_modules
+
+npm-debug.log
+
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# System files
+.DS_Store
+Thumbs.db
