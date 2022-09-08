@@ -1,26 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-export interface MovieType {
-  link_cover: string;
-  title: string;
-  duration: string;
-  genre: string;
-  sinopse: string;
-  director: string;
-  cast: string;
-  classification: string;
-  start_date: string;
-  end_date: string;
-  session1: {
-    room: string;
-    time: string;
-  };
-  session2?: {
-    room: string;
-    time: string;
-  };
-}
-
 const MovieSchema = new Schema(
   {
     link_cover: {

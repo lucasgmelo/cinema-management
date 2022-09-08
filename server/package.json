@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon server.ts"
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "@types/node": "^18.7.16",
     "nodemon": "^2.0.15"
   }
 }

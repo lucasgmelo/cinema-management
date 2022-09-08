@@ -1,5 +1,3 @@
-import { MovieType } from "../models/Movie";
-
 const Movie = require("../models/Movie");
 
 module.exports = {
@@ -8,22 +6,22 @@ module.exports = {
 
     return movies;
   },
-  getMovieById: async (id: string) => {
+  getMovieById: async (id) => {
     const movie = await Movie.findById(id);
 
     return movie;
   },
-  createMovie: async (movieInfo: MovieType) => {
+  createMovie: async (movieInfo) => {
     const newMovie = await Movie.create(movieInfo);
 
     return newMovie;
   },
-  updateMovie: async (id: string, body: MovieType) => {
+  updateMovie: async (id, body) => {
     const updatedMovie = await Movie.findByIdAndUpdate(id, body, { new: true });
 
     return updatedMovie;
   },
-  deleteMovie: async (id: string) => {
+  deleteMovie: async (id) => {
     return await Movie.findByIdAndDelete(id);
   },
 };

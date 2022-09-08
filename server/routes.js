@@ -1,11 +1,10 @@
-import { Request, Response } from "express";
 const { Router } = require("express");
 
-const moviesController = require("./controllers/moviesController.ts");
+const moviesController = require("./controllers/moviesController.js");
 
 const router = Router();
 
-router.route("/").get(async (req: Request, res: Response) => {
+router.route("/").get(async (req, res) => {
   res.status(200).send("hello!");
 });
 

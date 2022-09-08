@@ -1,5 +1,3 @@
-import { Request, Response } from "express";
-
 const {
   getMovies,
   createMovie,
@@ -9,7 +7,7 @@ const {
 } = require("../repositories/moviesRepositories");
 
 module.exports = {
-  list: async (req: Request, res: Response) => {
+  list: async (req, res) => {
     try {
       const movies = await getMovies();
 
@@ -18,7 +16,7 @@ module.exports = {
       res.status(400).send(error);
     }
   },
-  create: async (req: Request, res: Response) => {
+  create: async (req, res) => {
     try {
       const newMovie = await createMovie(req.body);
 
@@ -27,7 +25,7 @@ module.exports = {
       res.status(400).send(error);
     }
   },
-  detail: async (req: Request, res: Response) => {
+  detail: async (req, res) => {
     try {
       const movie = await getMovieById(req.params.id);
 
@@ -38,7 +36,7 @@ module.exports = {
       res.status(400).send(error);
     }
   },
-  update: async (req: Request, res: Response) => {
+  update: async (req, res) => {
     try {
       const { id } = req.params;
 
@@ -53,7 +51,7 @@ module.exports = {
       res.status(400).send(error);
     }
   },
-  delete: async (req: Request, res: Response) => {
+  delete: async (req, res) => {
     try {
       const movie = await getMovieById(req.params.id);
 
