@@ -27,7 +27,7 @@ const MovieSchema = new Schema(
       required: true,
     },
     cast: {
-      type: String,
+      type: [String],
       required: true,
     },
     classification: {
@@ -40,6 +40,14 @@ const MovieSchema = new Schema(
     },
     end_date: {
       type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    acceptHalf: {
+      type: Boolean,
       required: true,
     },
     session1: {
