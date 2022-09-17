@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { GoogleAuthProvider } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import Toast from 'src/app/toastConfig';
 
@@ -41,13 +42,11 @@ export class AuthService {
 
       localStorage.setItem('user', JSON.stringify({ ...this.user }));
       this.route.navigate(['/']);
-      return true;
     } catch {
       Toast.fire({
         icon: 'error',
         title: 'Login ou senha incorretos',
       });
-      return false;
     }
   }
 
@@ -69,6 +68,26 @@ export class AuthService {
       Toast.fire({
         icon: 'error',
         title: 'Não foi possível realizar o cadastro, tente novamente mais tarde',
+      });
+    }
+  }
+
+  async signInWithGoogle() {
+    try {
+      const userLogged = await this.fireauth.signInWithPopup(new GoogleAuthProvider());
+
+      this.user = {
+        name: userLogged.user?.displayName!,
+        access: 'customer',
+        id: userLogged.user?.uid!,
+      };
+
+      localStorage.setItem('user', JSON.stringify({ ...this.user }));
+      this.route.navigate(['/']);
+    } catch {
+      Toast.fire({
+        icon: 'error',
+        title: 'Não foi possível fazer o login através do Google, tente novamente mais tarde',
       });
     }
   }
