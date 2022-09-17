@@ -6,6 +6,7 @@ import Toast from 'src/app/toastConfig';
 export interface User {
   name: string | null;
   access: 'guest' | 'manager' | 'customer';
+  id: string | null;
   password?: string;
 }
 
@@ -24,29 +25,61 @@ export class AuthService {
 
   user: User = {
     name: null,
+    id: null,
     access: 'guest',
   };
 
-  signIn(email: string, password: string) {
-    this.fireauth.signInWithEmailAndPassword(email, password).then(
-      () => {
-        console.log('success');
-        this.route.navigate(['/']);
-      },
-      () => {
-        Toast.fire({
-          icon: 'error',
-          title: 'Login ou senha incorretos',
-        });
-        return false;
-      }
-    );
+  async signIn(email: string, password: string) {
+    try {
+      const userLogged = await this.fireauth.signInWithEmailAndPassword(email, password);
+
+      this.user = {
+        name: userLogged.user?.displayName!,
+        access: 'customer',
+        id: userLogged.user?.uid!,
+      };
+
+      localStorage.setItem('user', JSON.stringify({ ...this.user }));
+      this.route.navigate(['/']);
+      return true;
+    } catch {
+      Toast.fire({
+        icon: 'error',
+        title: 'Login ou senha incorretos',
+      });
+      return false;
+    }
+  }
+
+  async signUp(email: string, password: string, name: string) {
+    try {
+      const { user: newUser } = await this.fireauth.createUserWithEmailAndPassword(email, password);
+
+      await newUser?.updateProfile({
+        displayName: name,
+      });
+
+      this.route.navigate(['/']);
+
+      Toast.fire({
+        icon: 'success',
+        title: 'Cadastro realizado com sucesso',
+      });
+    } catch {
+      Toast.fire({
+        icon: 'error',
+        title: 'Não foi possível realizar o cadastro, tente novamente mais tarde',
+      });
+    }
   }
 
   logout() {
+    this.user.id = null;
     this.user.name = null;
     this.user.access = 'guest';
 
     localStorage.removeItem('user');
+
+    this.fireauth.signOut();
   }
 }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import Toast from 'src/app/toastConfig';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +9,7 @@ import Toast from 'src/app/toastConfig';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
-  constructor(private route: Router, private formBuilder: FormBuilder) {}
+  constructor(private route: Router, private formBuilder: FormBuilder, private authService: AuthService) {}
 
   ngOnInit(): void {}
 
@@ -26,10 +25,8 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.route.navigate(['/']);
-    Toast.fire({
-      icon: 'success',
-      title: 'Cadastro realizado com sucesso',
-    });
+    const { email, password, name } = this.signupForm.value;
+
+    this.authService.signUp(email!, password!, name!);
   }
 }
