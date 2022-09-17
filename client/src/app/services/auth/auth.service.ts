@@ -1,34 +1,20 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
+import Toast from 'src/app/toastConfig';
 
 export interface User {
   name: string | null;
   access: 'guest' | 'manager' | 'customer';
+  id: string | null;
   password?: string;
 }
-
-interface MockedUserTypes {
-  'ada@gmail.com': User;
-  'pog@gmail.com': User;
-}
-
-const mockedUsers: MockedUserTypes = {
-  'ada@gmail.com': {
-    name: 'Ada',
-    password: '123123',
-    access: 'customer',
-  },
-  'pog@gmail.com': {
-    name: 'Pog',
-    password: '123123',
-    access: 'manager',
-  },
-};
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor() {
+  constructor(private fireauth: AngularFireAuth, private route: Router) {
     if (localStorage.getItem('user')) {
       const currentUser: User = JSON.parse(localStorage.getItem('user') || '{}');
 
@@ -39,40 +25,61 @@ export class AuthService {
 
   user: User = {
     name: null,
+    id: null,
     access: 'guest',
   };
 
-  signIn(email: string, password: string) {
-    if (email === 'ada@gmail.com') {
-      const newName = mockedUsers[email].name;
-      const newAccess: 'customer' | 'manager' | 'guest' = mockedUsers[email].access;
+  async signIn(email: string, password: string) {
+    try {
+      const userLogged = await this.fireauth.signInWithEmailAndPassword(email, password);
 
-      localStorage.setItem('user', JSON.stringify({ name: newName, access: newAccess }));
+      this.user = {
+        name: userLogged.user?.displayName!,
+        access: 'customer',
+        id: userLogged.user?.uid!,
+      };
 
-      this.user.name = newName;
-      this.user.access = newAccess;
-
+      localStorage.setItem('user', JSON.stringify({ ...this.user }));
+      this.route.navigate(['/']);
       return true;
+    } catch {
+      Toast.fire({
+        icon: 'error',
+        title: 'Login ou senha incorretos',
+      });
+      return false;
     }
+  }
 
-    if (email === 'pog@gmail.com') {
-      const newName = mockedUsers[email].name;
-      const newAccess: 'customer' | 'manager' | 'guest' = mockedUsers[email].access;
+  async signUp(email: string, password: string, name: string) {
+    try {
+      const { user: newUser } = await this.fireauth.createUserWithEmailAndPassword(email, password);
 
-      localStorage.setItem('user', JSON.stringify({ name: newName, access: newAccess }));
-      this.user.name = newName;
-      this.user.access = newAccess;
+      await newUser?.updateProfile({
+        displayName: name,
+      });
 
-      return true;
+      this.route.navigate(['/']);
+
+      Toast.fire({
+        icon: 'success',
+        title: 'Cadastro realizado com sucesso',
+      });
+    } catch {
+      Toast.fire({
+        icon: 'error',
+        title: 'Não foi possível realizar o cadastro, tente novamente mais tarde',
+      });
     }
-
-    return false;
   }
 
   logout() {
+    this.user.id = null;
     this.user.name = null;
     this.user.access = 'guest';
 
     localStorage.removeItem('user');
+
+    this.fireauth.signOut();
   }
 }
