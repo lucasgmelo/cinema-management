@@ -6,8 +6,8 @@
       <h1>Cadastro</h1>
 
       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-        <div class="item">
-          <label for="name">Nome</label>
+        <div class="form-item">
+          <label for="name">Nome<span>*</span></label>
           <input
             class="input-global"
             type="text"
@@ -19,8 +19,8 @@
           />
         </div>
 
-        <div class="item">
-          <label for="email">Email</label>
+        <div class="form-item">
+          <label for="email">Email<span>*</span></label>
           <input
             class="input-global"
             type="email"
@@ -32,8 +32,8 @@
           />
         </div>
 
-        <div class="item">
-          <label for="password">Senha</label>
+        <div class="form-item">
+          <label for="password">Senha<span>*</span></label>
           <input
             class="input-global"
             type="password"
