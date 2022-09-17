@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
+import Toast from 'src/app/toastConfig';
 
 export interface User {
   name: string | null;
@@ -6,29 +9,11 @@ export interface User {
   password?: string;
 }
 
-interface MockedUserTypes {
-  'ada@gmail.com': User;
-  'pog@gmail.com': User;
-}
-
-const mockedUsers: MockedUserTypes = {
-  'ada@gmail.com': {
-    name: 'Ada',
-    password: '123123',
-    access: 'customer',
-  },
-  'pog@gmail.com': {
-    name: 'Pog',
-    password: '123123',
-    access: 'manager',
-  },
-};
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor() {
+  constructor(private fireauth: AngularFireAuth, private route: Router) {
     if (localStorage.getItem('user')) {
       const currentUser: User = JSON.parse(localStorage.getItem('user') || '{}');
 
@@ -43,30 +28,19 @@ export class AuthService {
   };
 
   signIn(email: string, password: string) {
-    if (email === 'ada@gmail.com') {
-      const newName = mockedUsers[email].name;
-      const newAccess: 'customer' | 'manager' | 'guest' = mockedUsers[email].access;
-
-      localStorage.setItem('user', JSON.stringify({ name: newName, access: newAccess }));
-
-      this.user.name = newName;
-      this.user.access = newAccess;
-
-      return true;
-    }
-
-    if (email === 'pog@gmail.com') {
-      const newName = mockedUsers[email].name;
-      const newAccess: 'customer' | 'manager' | 'guest' = mockedUsers[email].access;
-
-      localStorage.setItem('user', JSON.stringify({ name: newName, access: newAccess }));
-      this.user.name = newName;
-      this.user.access = newAccess;
-
-      return true;
-    }
-
-    return false;
+    this.fireauth.signInWithEmailAndPassword(email, password).then(
+      () => {
+        console.log('success');
+        this.route.navigate(['/']);
+      },
+      () => {
+        Toast.fire({
+          icon: 'error',
+          title: 'Login ou senha incorretos',
+        });
+        return false;
+      }
+    );
   }
 
   logout() {
