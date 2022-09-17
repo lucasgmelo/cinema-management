@@ -50,18 +50,9 @@ const MovieSchema = new Schema(
       type: Boolean,
       required: true,
     },
-    session1: {
-      type: {
-        room: String,
-        time: String,
-      },
+    sessions: {
+      type: Object,
       required: true,
-    },
-    session2: {
-      type: {
-        room: String,
-        time: String,
-      },
     },
   },
   {
