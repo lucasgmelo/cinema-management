@@ -27,6 +27,9 @@ import { CardMovieComponent } from './components/card-movie/card-movie.component
 import { EditPageComponent } from './pages/edit-page/edit-page.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +52,14 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     EditPageComponent,
     CarouselComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, SwiperModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    SwiperModule,
+    AngularFireModule.initializeApp(environment.firebase),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
