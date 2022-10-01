@@ -18,7 +18,7 @@ const MovieSchema = new Schema(
       type: String,
       required: true,
     },
-    sinopse: {
+    synopsis: {
       type: String,
       required: true,
     },
