@@ -1,32 +1,21 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ApiService } from 'src/app/services/api/api.service';
+import { GetMoviesResponse } from 'src/app/services/api/types';
 
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.scss']
+  styleUrls: ['./movie.component.scss'],
 })
 export class MovieComponent implements OnInit {
+  constructor(private route: Router, private routeActivated: ActivatedRoute, private apiService: ApiService) {}
 
-  @Input() movieCover !: string;
-  @Input() movieTitle !: string; 
-  @Input() duration !: string;
-  @Input() genre !: string;
-  @Input() synopsis !: string;
-  @Input() director !: string;
-  @Input() cast !: string;
-  @Input() pr !: string;
-  id: any;
-
-  constructor(private route: Router, private router: ActivatedRoute) {
-  }
+  movie: GetMoviesResponse = {};
 
   ngOnInit(): void {
-    this.router.queryParams.subscribe(params => {
-      console.log(params)
-      this.id = params['movie-id'];
-    });
-    console.log(this.id);
+    const id = this.routeActivated.snapshot.paramMap.get('id')!;
+    this.apiService.getMovie(id).subscribe((movie) => (this.movie = movie));
   }
 
   selectedDay = 0;

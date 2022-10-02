@@ -1,15 +1,13 @@
 <div class="movie-box">
-
-    <img class = 'image'src="{{movieCover}}" alt="">
-    <div class="info"> 
-        <h2>{{movieTitle}}</h2>
-        <h3>Sinopse</h3>
-        <p>{{synopsis}}</p>
-        <div>
-            <app-badge content="{{duration}}"></app-badge>
-            <app-badge content="{{genre}}"></app-badge>
-        </div>
-        <button routerLink="/filme/1" class="btn" >Ver sessões disponíveis</button>
+  <img class="image" src="{{ movieCover }}" alt="" />
+  <div class="info">
+    <h2>{{ movieTitle }}</h2>
+    <h3>Sinopse</h3>
+    <p>{{ synopsis }}</p>
+    <div>
+      <app-badge content="{{ duration }}"></app-badge>
+      <app-badge content="{{ genre }}"></app-badge>
     </div>
-
+    <button [routerLink]="['/filme', id]" class="btn">Ver sessões disponíveis</button>
+  </div>
 </div>
