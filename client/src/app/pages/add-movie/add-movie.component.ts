@@ -44,10 +44,8 @@ export class AddMovieComponent implements OnInit {
       case 'name': {
         if (!event.target.value) {
           this.emptyname = true;
-          console.log(this.emptyname)
         } else {
           this.emptyname = false;
-          console.log(this.emptyname)
         }
         break; 
       }

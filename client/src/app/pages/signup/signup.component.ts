@@ -13,12 +13,55 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  isDisabled = true;
+
+  emptyemail = true;
+  emptypassword = true;
+  emptyname = true;
+
   signupForm = this.formBuilder.group({
     email: '',
     password: '',
     name: '',
     access: 'guest',
   });
+
+  onChangeInput(event: any) {
+    switch(event.target.id) {
+      case 'name': {
+        if (!event.target.value) {
+          this.emptyname = true;
+        } else {
+          this.emptyname = false;
+        }
+        break; 
+      }
+      case 'password': { 
+        if (!event.target.value) {
+          this.emptypassword = true;
+        } else {
+          this.emptypassword = false;
+        }
+        break; 
+      }
+      case 'email': { 
+        if (!event.target.value) {
+          this.emptyemail = true;
+        } else {
+          this.emptyemail = false;
+        }
+        break; 
+      }
+    }
+  }
+
+  isButtonDisabled() {
+    if(this.emptyname || this.emptypassword || this.emptyemail) {
+      this.isDisabled = true;
+    }else{
+      this.isDisabled = false;
+    }
+  }
 
   backToSignin() {
     this.route.navigate(['/login']);
