@@ -1,6 +1,7 @@
 const { Router } = require("express");
 
 const moviesController = require("./controllers/moviesController.js");
+const ticketsController = require("./controllers/ticketsController.js");
 
 const router = Router();
 
@@ -17,5 +18,15 @@ router
   .get(moviesController.detail)
   .patch(moviesController.update)
   .delete(moviesController.delete);
+
+router
+  .route("/tickets")
+  .get(ticketsController.list)
+  .post(ticketsController.create);
+router
+  .route("/tickets/:id")
+  .get(ticketsController.detail)
+  .patch(ticketsController.update)
+  .delete(ticketsController.delete);
 
 module.exports = router;
