@@ -15,7 +15,7 @@ export class SigninComponent implements OnInit {
   isDisabled = true;
 
   emptyemail = true;
-  emptypassword = false;
+  emptypassword = true;
   
   ngOnInit(): void {
     const currentUser: User = JSON.parse(localStorage.getItem('user') || '{}');
@@ -58,7 +58,6 @@ export class SigninComponent implements OnInit {
 
   onChangeEmail() {}
 
-  // Create button to log in especifically with google
   loginWithGoogle() {
     this.authService.signInWithGoogle();
   }

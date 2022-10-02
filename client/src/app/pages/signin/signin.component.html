@@ -38,8 +38,17 @@
         </div>
 
         <div class="footer">
-          <a (click)="goToSignup()">Cadastre-se</a>
-          <button [disabled]="isDisabled" type="submit" class="btn">Entrar</button>
+
+          <div class="entrar">
+            <a (click)="goToSignup()">Cadastre-se</a>
+            <button [disabled]="isDisabled" type="submit" class="btn">Entrar</button>
+          </div>
+
+          <button class="btn" id="googlebtn" (click)="loginWithGoogle()">
+            Entrar com Google
+            <img src="assets/google_logo.svg" alt="google logo" class="logo"/>
+          </button>
+          
         </div>
       </form>
     </section>

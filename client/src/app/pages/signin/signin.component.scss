@@ -42,10 +42,36 @@ form {
   flex-direction: column;
 }
 
-.footer {
-  @include flex(space-between, center);
+#googlebtn {
+  display: flex;
+  max-width: 60%;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  a {
-    text-decoration: underline;
+.logo {
+  width: 10%;
+  height: 10%;
+}
+
+.footer {
+  
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .entrar {
+    display: flex;
+    min-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+
+    a {
+      text-decoration: underline;
+    }
+    
   }
+
+  
 }
