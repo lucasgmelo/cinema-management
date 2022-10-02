@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService, GetMoviesResponse } from 'src/app/services/api/api.service';
+import { ApiService} from 'src/app/services/api/api.service';
+import { GetMoviesResponse } from 'src/app/services/api/types';
 
 @Component({
   selector: 'app-home',

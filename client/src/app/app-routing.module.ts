@@ -14,7 +14,7 @@ import { EditPageComponent } from './pages/edit-page/edit-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'checkout/:movie-id', component: CheckoutComponent },
+  { path: 'checkout/:id', component: CheckoutComponent },
   { path: 'login', component: SigninComponent },
   { path: 'cadastro', component: SignupComponent },
   { path: 'gerenciar', component: ManagementComponent },
@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'editar-filme', component: EditPageComponent },
   { path: 'pagamento', component: PaymentComponent },
   { path: 'ingressos', component: TicketsComponent },
-  { path: 'filme/:movie-id', component: MovieComponent },
+  { path: 'filme/:id', component: MovieComponent },
 ];
 
 @NgModule({

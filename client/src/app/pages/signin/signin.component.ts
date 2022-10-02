@@ -32,10 +32,15 @@ export class SigninComponent implements OnInit {
 
   onChangeEmail() {}
 
+  // Create button to log in especifically with google
+  loginWithGoogle() {
+    this.authService.signInWithGoogle();
+  }
+
   onSubmit(): void {
     const { email, password } = this.signinForm.value;
 
-    // this.authService.signIn(email!, password!);
-    this.authService.signInWithGoogle();
+    this.authService.signIn(email!, password!);
+    
   }
 }

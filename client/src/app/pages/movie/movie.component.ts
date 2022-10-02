@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
@@ -16,10 +16,17 @@ export class MovieComponent implements OnInit {
   @Input() director !: string;
   @Input() cast !: string;
   @Input() pr !: string;
+  id: any;
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private router: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
+    this.router.queryParams.subscribe(params => {
+      console.log(params)
+      this.id = params['movie-id'];
+    });
+    console.log(this.id);
   }
 
   selectedDay = 0;

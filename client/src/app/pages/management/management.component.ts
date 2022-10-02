@@ -39,7 +39,7 @@ export class ManagementComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.user.access != 'manager') {
-      this.route.navigate(['']);
+      //this.route.navigate(['']);
     }
   }
 
