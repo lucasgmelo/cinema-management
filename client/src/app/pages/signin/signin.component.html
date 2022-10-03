@@ -11,8 +11,8 @@
         <div class="form-item">
           <label for="email">Email<span>*</span></label>
           <input
-            (change)="onChangeInput($event)"
-            (change)="isButtonDisabled()"
+            (keyup)="onChangeInput($event)"
+            (keyup)="isButtonDisabled()"
             class="input-global"
             type="email"
             name="email"
@@ -26,8 +26,8 @@
         <div class="form-item">
           <label for="password">Senha<span>*</span></label>
           <input
-            (change)="onChangeInput($event)"
-            (change)="isButtonDisabled()"
+            (keyup)="onChangeInput($event)"
+            (keyup)="isButtonDisabled()"
             class="input-global"
             type="password"
             name="password"
