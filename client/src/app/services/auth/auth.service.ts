@@ -60,6 +60,14 @@ export class AuthService {
 
       this.route.navigate(['/']);
 
+      this.user = {
+        name: newUser?.displayName!,
+        access: 'customer',
+        id: newUser?.uid!,
+      };
+
+      localStorage.setItem('user', JSON.stringify({ ...this.user }));
+
       Toast.fire({
         icon: 'success',
         title: 'Cadastro realizado com sucesso',
