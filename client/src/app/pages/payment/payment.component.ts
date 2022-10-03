@@ -10,10 +10,32 @@ import Toast from 'src/app/toastConfig';
 export class PaymentComponent implements OnInit {
   constructor(private route: Router) {}
 
+  numeroCartao = ''
+  nomeTitular = ''
+  validade = ''
+
   ngOnInit(): void {}
 
   goBack() {
     this.route.navigate(['checkout/1']);
+  }
+
+  onChangeInputNumero(event: any){
+    
+    this.numeroCartao = event.target.value
+
+  }
+
+  onChangeInputNome(event: any){
+    
+    this.nomeTitular = event.target.value 
+
+  }
+
+  onChangeInputValidade(event: any){
+    
+    this.validade = event.target.value
+
   }
 
   onSubmit() {
@@ -24,4 +46,5 @@ export class PaymentComponent implements OnInit {
 
     this.route.navigate(['']);
   }
+
 }
