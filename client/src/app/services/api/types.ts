@@ -13,6 +13,7 @@ export interface GetMoviesResponse {
   price?: number;
   acceptHalf?: boolean;
   sessions?: object;
+  managementInfo?: { room: string; hour: string }[];
 }
 
 export interface CreateMoviesRequest {
