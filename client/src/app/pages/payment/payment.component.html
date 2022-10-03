@@ -12,7 +12,7 @@
       <form>
         <div class="form-item">
           <label for="card">Número do cartão<span>*</span></label>
-          <input (keyup)="onChangeInputNumero($event)" class="input-global" type="text" pattern="\d*" maxlength="16" name="card" id="card" required autocomplete="off" />
+          <input (keyup)="onChangeInputNumero($event)" class="input-global" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"  maxlength="16" name="card" id="card" required autocomplete="off" />
         </div>
 
         <div class="form-item">
@@ -27,7 +27,7 @@
 
         <div class="form-item">
           <label for="code">CVV<span>*</span></label>
-          <input class="input-global" type="text" pattern="\d*" maxlength="3" name="code" id="code" required />
+          <input class="input-global" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="3" name="code" id="code" required />
         </div>
       </form>
     </div>
