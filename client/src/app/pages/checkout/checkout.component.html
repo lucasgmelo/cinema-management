@@ -16,7 +16,8 @@
       <div>
         <p>Meia</p>
         <p>16,00</p>
-        <select name="seat-selection" id="seat-selection" class="input-global">
+        <select (change)="onChangeInputMeia($event)" name="seat-selection" id="seat-selection" class="input-global">
+          <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -31,7 +32,8 @@
       <div>
         <p>Inteira</p>
         <p>32,00</p>
-        <select name="seat-selection" id="seat-selection" class="input-global">
+        <select (change)="onChangeInputInteira($event)" name="seat-selection" id="seat-selection" class="input-global">
+          <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -44,7 +46,7 @@
       </div>
     </div>
 
-    <p>Subtotal<span>R$0,00</span></p>
+    <p>Subtotal<span>R$ {{valorMeia + valorInteira}}</span></p>
   </section>
 
   <section class="seats">

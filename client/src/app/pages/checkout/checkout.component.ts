@@ -18,6 +18,8 @@ export class CheckoutComponent implements OnInit {
     isSelected: false
 }));
 
+  valorInteira = 0
+  valorMeia = 0
 
   selectedSeats:Number[] = []
 
@@ -48,4 +50,18 @@ export class CheckoutComponent implements OnInit {
 
   }
 
+  onChangeInputMeia(event: any){
+    
+    this.valorMeia = event.target.value * 16
+
+  }
+
+  onChangeInputInteira(event: any){
+    
+    this.valorInteira = event.target.value * 32
+
+  }
+
 }
+
+
