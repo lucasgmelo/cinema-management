@@ -13,6 +13,7 @@ export class PaymentComponent implements OnInit {
   numeroCartao = ''
   nomeTitular = ''
   validade = ''
+  arr = []
 
   ngOnInit(): void {}
 
