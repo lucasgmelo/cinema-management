@@ -41,13 +41,74 @@
           (keyup)="onChangeInput($event)"
           (keyup)="isButtonDisabled()"
           class="input-global"
-          type="text"
+          type="number"
           name="duration"
           id="duration"
           formControlName="duration"
           required
           autocomplete="off"
-          placeholder="ex: 120min"
+          placeholder="ex: 120"
+        />
+      </div>
+
+      <div class="form-item">
+        <label for="genre">Gênero<span>*</span></label>
+        <input
+          (change)="onChangeInput($event)"
+          (change)="isButtonDisabled()"
+          class="input-global"
+          type="text"
+          name="genre"
+          id="genre"
+          formControlName="genre"
+          required
+          autocomplete="off"
+          placeholder="ex: Animação"
+        />
+      </div>
+      <div class="form-item">
+        <label for="classification">Classificação<span>*</span></label>
+        <input
+          (change)="onChangeInput($event)"
+          (change)="isButtonDisabled()"
+          class="input-global"
+          type="text"
+          name="classification"
+          id="classification"
+          formControlName="classification"
+          required
+          autocomplete="off"
+          placeholder="ex: 12 anos"
+        />
+      </div>
+      <div class="form-item">
+        <label for="price">Preço<span>*</span></label>
+        <input
+          (change)="onChangeInput($event)"
+          (change)="isButtonDisabled()"
+          class="input-global"
+          type="number"
+          name="price"
+          id="price"
+          formControlName="price"
+          required
+          autocomplete="off"
+          placeholder="ex: 12"
+        />
+      </div>
+      <div class="form-item">
+        <label for="acceptHalf">Aceita meia entrada?<span>*</span></label>
+        <input
+          (change)="onChangeInput($event)"
+          (change)="isButtonDisabled()"
+          class="input-global"
+          type="checkbox"
+          name="acceptHalf"
+          id="acceptHalf"
+          formControlName="acceptHalf"
+          required
+          autocomplete="off"
+          placeholder="ex: Animação"
         />
       </div>
 
@@ -67,16 +128,65 @@
         />
       </div>
       <div class="form-item">
-        <label for="startDate">Data de início<span>*</span></label>
-        <input (change)="onChangeInput($event)" (change)="isButtonDisabled()" class="input-global" type="date" name="startDate" id="startDate" formControlName="startDate" required autocomplete="off"/>
-      </div>
-      <div class="form-item">
-        <label for="finalDate">Data final<span>*</span></label>
-        <input (change)="onChangeInput($event)" (change)="isButtonDisabled()" class="input-global" type="date" name="finalDate" id="finalDate" formControlName="finalDate" required autocomplete="off" />
+        <label for="synopsis">Sinopse<span>*</span></label>
+        <textarea
+          (change)="onChangeInput($event)"
+          (change)="isButtonDisabled()"
+          class="input-global"
+          type="text"
+          name="synopsis"
+          id="synopsis"
+          formControlName="synopsis"
+          required
+          autocomplete="off"
+        ></textarea>
       </div>
     </div>
 
     <div class="column">
+      <div class="form-item">
+        <label for="cast">Elenco<span>*</span></label>
+        <input
+          (change)="onChangeInput($event)"
+          (change)="isButtonDisabled()"
+          class="input-global"
+          type="text"
+          name="cast"
+          id="cast"
+          formControlName="cast"
+          required
+          autocomplete="off"
+          placeholder="ex: Angelina, Louis"
+        />
+      </div>
+      <div class="form-item">
+        <label for="startDate">Data de início<span>*</span></label>
+        <input
+          (change)="onChangeInput($event)"
+          (change)="isButtonDisabled()"
+          class="input-global"
+          type="date"
+          name="startDate"
+          id="startDate"
+          formControlName="startDate"
+          required
+          autocomplete="off"
+        />
+      </div>
+      <div class="form-item">
+        <label for="finalDate">Data final<span>*</span></label>
+        <input
+          (change)="onChangeInput($event)"
+          (change)="isButtonDisabled()"
+          class="input-global"
+          type="date"
+          name="finalDate"
+          id="finalDate"
+          formControlName="finalDate"
+          required
+          autocomplete="off"
+        />
+      </div>
       <div class="form-item">
         <h4 class="subtitle">Sessões</h4>
 
@@ -86,7 +196,14 @@
           <div class="session-items">
             <div class="session-item">
               <label for="room1">Sala<span>*</span></label>
-              <select (change)="onChangeInput($event)" (change)="isButtonDisabled()" name="room1" id="room1" formControlName="room1" class="input-global">
+              <select
+                (change)="onChangeInput($event)"
+                (change)="isButtonDisabled()"
+                name="room1"
+                id="room1"
+                formControlName="room1"
+                class="input-global"
+              >
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -94,7 +211,15 @@
               </select>
 
               <label for="time1">Horário<span>*</span></label>
-              <input (change)="onChangeInput($event)" (change)="isButtonDisabled()" type="time" name="time1" id="time1" formControlName="time1" class="input-global" />
+              <input
+                (change)="onChangeInput($event)"
+                (change)="isButtonDisabled()"
+                type="time"
+                name="time1"
+                id="time1"
+                formControlName="time1"
+                class="input-global"
+              />
             </div>
             <button [disabled]="isDisabled" class="btn small">Adicionar nova sessão</button>
           </div>

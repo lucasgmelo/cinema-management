@@ -9,10 +9,9 @@ import { Router } from '@angular/router';
 export class ManagementCardComponent implements OnInit {
   @Input() title!: string;
   @Input() cover!: string;
-  @Input() theater!: string;
   @Input() date!: string;
   @Input() hour!: string;
-  @Input() seats!: string;
+  @Input() managementInfo!: [{ room: string; hour: string }];
 
   constructor(private route: Router) {}
 
