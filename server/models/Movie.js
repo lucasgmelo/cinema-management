@@ -50,6 +50,10 @@ const MovieSchema = new Schema(
       type: Boolean,
       required: true,
     },
+    managementInfo: {
+      type: [{ room: Number, hour: String }],
+      required: true,
+    },
     sessions: {
       type: Object,
       required: true,

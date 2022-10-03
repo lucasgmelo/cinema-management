@@ -6,13 +6,10 @@
   </div>
   <section class="card-container">
     <app-management-card
-      *ngFor="let ticket of data"
-      cover="{{ ticket.cover }}"
-      title="{{ ticket.title }}"
-      theater="{{ ticket.theater }}"
-      date="{{ ticket.date }}"
-      hour="{{ ticket.hour }}"
-      seats="{{ ticket.seats }}"
+      *ngFor="let movie of data"
+      cover="{{ movie.link_cover }}"
+      title="{{ movie.title }}"
+      date="{{ movie.end_date }}"
     ></app-management-card>
   </section>
 </main>
