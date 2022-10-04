@@ -195,8 +195,6 @@ export class AddMovieComponent implements OnInit {
       },
     };
 
-    console.log(newMovie);
-
     //this.route.navigate(['gerenciar']);
   }
 }
