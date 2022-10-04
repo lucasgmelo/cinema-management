@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api/api.service';
+import { GetMoviesResponse } from 'src/app/services/api/types';
+import { AuthService, User } from 'src/app/services/auth/auth.service';
+import Toast from 'src/app/toastConfig';
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +12,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router, private routeActivated: ActivatedRoute, private apiService: ApiService) { }
+
+  movie: GetMoviesResponse = {}
 
   ngOnInit(): void {
+    const id = this.routeActivated.snapshot.paramMap.get('id')!;
+    this.apiService.getMovie(id).subscribe((movie) => (this.movie = movie));
   }
 
   seatData = [...new Array(90)].map((_,index) => ({
@@ -73,6 +82,39 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
-}
+  async onSubmit(){
+
+    const currentUser: User = JSON.parse(localStorage.getItem('user') || '{}');
+
+    const newTickets = {
+      uid: currentUser.id!,
+      tickets: [{
+        title: this.movie.title!,
+        room: 4,
+        date: '06/09/2022',
+        hour: '17:00',
+        link_cover: this.movie.link_cover!,
+        seats: this.selectedSeats!,
+      }]
+    }
+
+    console.log(newTickets)
+
+    if(this.apiService.buyTicket(newTickets).subscribe()){
+      Toast.fire({
+        icon: 'success',
+        text: 'Ingressos Reservados',
+      });
+      this.route.navigate(["/pagamento"])
+    }
+
+    else{
+      Toast.fire({
+        icon: 'error',
+        title: 'Não foi possível reservar os ingressos, tente novamente mais tarde',
+      });
+      }
+    }
+  }
 
 

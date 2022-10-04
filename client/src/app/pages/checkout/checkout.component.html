@@ -90,6 +90,6 @@
       <p>{{selectedSeats.length}} / {{valorMeia*1 + valorInteira*1}}</p>
     </div>
 
-    <button [disabled]="btnDisabled" routerLink="/pagamento" class="btn">Continuar para pagamento</button>
+    <button (click)="onSubmit()" [disabled]="btnDisabled" class="btn">Continuar para pagamento</button>
   </div>
 </main>
