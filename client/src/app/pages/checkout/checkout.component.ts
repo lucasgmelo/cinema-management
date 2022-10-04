@@ -105,6 +105,9 @@ export class CheckoutComponent implements OnInit {
         icon: 'success',
         text: 'Ingressos Reservados',
       });
+
+      //this.apiService.updateMovie({...this.movie, una})
+
       this.route.navigate(["/pagamento"])
     }
 

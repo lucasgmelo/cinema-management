@@ -22,6 +22,10 @@ export class ApiService {
     return this.http.post<boolean>(`${this.baseUrl}/movies`, data);
   }
 
+  updateMovie(data: GetMoviesResponse) {
+    return this.http.patch<boolean>(`${this.baseUrl}/movies/${data._id}`, data);
+  }
+
   getTickets(id: string) {
     return this.http.get<BuyTicketRequest>(`${this.baseUrl}/tickets/${id}`);
   }
