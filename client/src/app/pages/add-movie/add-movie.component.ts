@@ -200,7 +200,7 @@ export class AddMovieComponent implements OnInit {
     } else {
       Toast.fire({
         icon: 'error',
-        title: 'Não foi possível criar o filme, tente novamente mais tarde',
+        title: 'Não foi possível criar o filme, tente novamente mais',
       });
     }
   }

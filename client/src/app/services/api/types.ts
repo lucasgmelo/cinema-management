@@ -32,14 +32,16 @@ export interface CreateMoviesRequest {
   sessions?: object;
 }
 
+export interface TicketType {
+  title: string;
+  room: number;
+  date: string;
+  hour: string;
+  seats: string[];
+  link_cover: string;
+}
+
 export interface BuyTicketRequest {
   uid?: string;
-  tickets?: {
-    title: string;
-    room3: number;
-    date: string;
-    hour: string;
-    seats: string[];
-    link_cover: string;
-  }[];
+  tickets?: TicketType[];
 }
