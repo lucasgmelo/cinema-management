@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-ticket-card',
   templateUrl: './ticket-card.component.html',
@@ -15,5 +14,5 @@ export class TicketCardComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {};
 }

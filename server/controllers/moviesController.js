@@ -6,10 +6,39 @@ const {
   deleteMovie,
 } = require("../repositories/moviesRepositories");
 
+const convertDateStringToNumber = (startDate, endDate) => {
+  const startDates = startDate.split('/');
+  const startDatesNumber = startDates.map((date) => Number(date));
+  startDatesNumber[1]--;
+
+  const endDates = endDate.split('/');
+  const endDatesNumber = endDates.map((date) => Number(date));
+  endDatesNumber[1]--;
+
+  return [startDatesNumber, endDatesNumber];
+};
+
 module.exports = {
   list: async (req, res) => {
     try {
       const movies = await getMovies();
+
+      res.status(200).send(movies);
+    } catch (error) {
+      res.status(400).send(error);
+    }
+  },
+  availableSessions: async (req, res) => {
+    try {
+      const movies = await getMovies();
+      const possibleHours = ['12:00', '14:00', '16:00', '18:00', '20:00', '22:00'];
+      const {startDate, endDate} = req.body;
+      const [arrStart, arrEnd] = convertDateStringToNumber(startDate, endDate);
+
+      const startInDate = new Date(arrStart[2], arrStart[1], arrStart[0]);
+      const endInDate = new Date(arrEnd[2], arrEnd[1], arrEnd[0]);
+      console.log(startInDate, endInDate);
+
 
       res.status(200).send(movies);
     } catch (error) {
