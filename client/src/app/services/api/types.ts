@@ -12,7 +12,7 @@ export interface GetMoviesResponse {
   end_date?: string;
   price?: number;
   acceptHalf?: boolean;
-  sessions?: object;
+  sessions?: any;
   managementInfo?: { room: string; hour: string }[];
 }
 
@@ -29,5 +29,5 @@ export interface CreateMoviesRequest {
   end_date: string;
   price: number;
   acceptHalf: boolean;
-  sessions: object;
+  sessions: any;
 }
