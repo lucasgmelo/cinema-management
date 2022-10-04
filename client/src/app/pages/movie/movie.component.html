@@ -33,7 +33,7 @@
       <app-datepicker
         *ngFor="let day of arrDates"
         [when]="day.name"
-        [date]="day.date" 
+        [date]="day.date"
         [isSelected]="day.date == selectedDay"
         (click)="changeSelectedDay(day.date)"
       ></app-datepicker>
@@ -41,9 +41,61 @@
   </section>
 
   <section class="theater">
+    <div *ngIf="room1">
       <p>SALA 1</p>
+
       <div>
-        <button class="btn outline" (click)="goToCheckout()"></button>
+        <button
+          *ngFor="let hour of arrRoom1"
+          class="btn outline"
+          [disabled]="!hour.available"
+          (click)="goToCheckout(hour.hour, '1')"
+        >
+          {{ hour.hour }}
+        </button>
       </div>
+    </div>
+    <div *ngIf="room2">
+      <p>SALA 2</p>
+
+      <div>
+        <button
+          *ngFor="let hour of arrRoom2"
+          class="btn outline"
+          [disabled]="!hour.available"
+          (click)="goToCheckout(hour.hour, '2')"
+        >
+          {{ hour.hour }}
+        </button>
+      </div>
+    </div>
+    <div *ngIf="room3">
+      <p>SALA 3</p>
+
+      <div>
+        <button
+          *ngFor="let hour of arrRoom3"
+          class="btn outline"
+          [disabled]="!hour.available"
+          (click)="goToCheckout(hour.hour, '3')"
+        >
+          {{ hour.hour }}
+        </button>
+      </div>
+    </div>
+    <div *ngIf="room4">
+      <p>SALA 4</p>
+
+      <div>
+        <button
+          *ngFor="let hour of arrRoom4"
+          class="btn outline"
+          [disabled]="!hour.available"
+          (click)="goToCheckout(hour.hour, '4')"
+        >
+          {{ hour.hour }}
+        </button>
+      </div>
+    </div>
   </section>
 </main>
