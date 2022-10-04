@@ -101,10 +101,10 @@ export class CheckoutComponent implements OnInit {
           movieId: id,
           title: this.movie.title!,
           room: +this.room,
-          date: this.data,
+          date: `${this.data}/2022`,
           hour: this.hour,
           link_cover: this.movie.link_cover!,
-          seats: this.selectedSeats!,
+          seats: this.selectedSeats!.map((seat) => String(seat)),
         },
       ],
     };
