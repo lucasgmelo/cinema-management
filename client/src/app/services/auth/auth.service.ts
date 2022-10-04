@@ -30,13 +30,19 @@ export class AuthService {
     access: 'guest',
   };
 
+  returnPermission(name: string) {
+    console.log(name);
+    if (name.includes('Admin')) return 'manager';
+    return 'customer';
+  }
+
   async signIn(email: string, password: string) {
     try {
       const userLogged = await this.fireauth.signInWithEmailAndPassword(email, password);
 
       this.user = {
         name: userLogged.user?.displayName!,
-        access: 'customer',
+        access: this.returnPermission(userLogged.user?.displayName!),
         id: userLogged.user?.uid!,
       };
 
