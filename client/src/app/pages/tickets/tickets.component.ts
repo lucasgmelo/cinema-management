@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
-import { TicketType } from 'src/app/services/api/types';
+import { BuyTicketRequest, TicketType } from 'src/app/services/api/types';
 import { AuthService, User } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -17,7 +17,13 @@ export class TicketsComponent implements OnInit {
   ngOnInit(): void {
     const currentUser: User = JSON.parse(localStorage.getItem('user') || '{}');
     this.apiService.getTickets(currentUser.id!).subscribe((data) => {
-      this.tickets = data.tickets!;
+
+      data.forEach((obj) => {
+        this.tickets.push(...obj.tickets!)
+      })
+
+      //this.tickets = data!;
+      console.log(this.tickets)
     });
 
     if (this.authService.user.access != 'customer') {
