@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import Toast from 'src/app/toastConfig';
+import { createSessionObjects, reverseDate } from 'src/app/utils/sessions';
 
 @Component({
   selector: 'app-add-movie',
@@ -180,8 +181,8 @@ export class AddMovieComponent implements OnInit {
       director,
       cast: cast!.split(', '),
       classification,
-      start_date: startDate,
-      end_date: finalDate,
+      start_date: reverseDate(startDate!),
+      end_date: reverseDate(finalDate!),
       price,
       acceptHalf,
       managementInfo: [
@@ -190,9 +191,7 @@ export class AddMovieComponent implements OnInit {
           hour: time1,
         },
       ],
-      sessions: {
-        // `${}`
-      },
+      sessions: createSessionObjects(reverseDate(startDate!), reverseDate(finalDate!), room1!, time1!),
     };
 
     console.log(newMovie);
