@@ -33,4 +33,17 @@ export class ApiService {
   buyTicket(data: BuyTicketRequest) {
     return this.http.post<boolean>(`${this.baseUrl}/tickets`, data);
   }
+
+  getAvailableHours(startDate: string, endDate: string, room: number){
+    return this.http.get<string[]>(`${this.baseUrl}/hours`, {
+
+      params: {
+        startDate: startDate,
+        endDate: endDate,
+        room: room,
+      }
+
+    });
+  }
+
 }

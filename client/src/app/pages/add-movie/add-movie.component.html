@@ -199,6 +199,7 @@
               <select
                 (change)="onChangeInput($event)"
                 (change)="isButtonDisabled()"
+                (change)="returnAvailableHours()"
                 name="room1"
                 id="room1"
                 formControlName="room1"
@@ -211,15 +212,21 @@
               </select>
 
               <label for="time1">Horário<span>*</span></label>
-              <input
-                (change)="onChangeInput($event)"
-                (change)="isButtonDisabled()"
-                type="time"
-                name="time1"
-                id="time1"
-                formControlName="time1"
-                class="input-global"
-              />
+              <select 
+              (change)="onChangeInput($event)"
+              (change)="isButtonDisabled()"
+              type="time"
+              name="time1"
+              id="time1"
+              formControlName="time1"
+              class="input-global">
+
+              <option
+               *ngFor="let hour of horas"
+               value="hour"
+               >{{hour}}</option>
+              </select>
+
             </div>
             <button [disabled]="isDisabled" class="btn small">Adicionar nova sessão</button>
           </div>
