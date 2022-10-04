@@ -44,6 +44,7 @@ form {
 
 #googlebtn {
   display: flex;
+  width: 60%;
   align-items: center;
   justify-content:space-evenly;
   max-width: fit-content;
@@ -57,7 +58,6 @@ form {
 }
 
 .footer {
-  
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -72,8 +72,5 @@ form {
     a {
       text-decoration: underline;
     }
-    
   }
-
-  
 }

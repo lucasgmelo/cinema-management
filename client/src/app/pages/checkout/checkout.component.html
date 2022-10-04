@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    <p>Subtotal<span>R$ {{valorMeia + valorInteira}}</span></p>
+    <p>Subtotal<span>R$ {{(valorMeia*16) + (valorInteira*32)}}</span></p>
   </section>
 
   <section class="seats">
@@ -78,6 +78,7 @@
         [isDisabled]="seat.isDisabled"
         [isSelected]="seat.isSelected"
         (click)="toggleSeat(seat.id)"
+        (click)="isButtonDisabled()"
       ></app-seat>
     </div>
   </section>
@@ -86,8 +87,9 @@
     <div>
       <p>Escolhidos:</p>
       <p>{{ selectedSeats.join(', ') }}</p>
+      <p>{{selectedSeats.length}} / {{valorMeia*1 + valorInteira*1}}</p>
     </div>
 
-    <button routerLink="/pagamento" class="btn">Continuar para pagamento</button>
+    <button [disabled]="btnDisabled" routerLink="/pagamento" class="btn">Continuar para pagamento</button>
   </div>
 </main>

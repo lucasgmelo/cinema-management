@@ -3,12 +3,14 @@
   <h1>Meus ingressos</h1>
 
   <section class="tickets-container">
-    <app-ticket-card *ngFor="let ticket of data"
-    cover = {{ticket.cover}} 
-    title = {{ticket.title}} 
-    theater = {{ticket.theater}} 
-    date = {{ticket.date}} 
-    hour = {{ticket.hour}} 
-    seats = {{ticket.seats}}></app-ticket-card>
+    <app-ticket-card
+      *ngFor="let ticket of tickets"
+      title="{{ ticket.title }}"
+      cover="{{ ticket.link_cover }}"
+      theater="{{ ticket.room }}"
+      date="{{ ticket.date }}"
+      hour="{{ ticket.hour }}"
+      seats="{{ ticket.seats }}"
+    ></app-ticket-card>
   </section>
 </main>

@@ -7,9 +7,11 @@ module.exports = {
     return tickets;
   },
   getTicketById: async (id) => {
-    const ticket = await Ticket.findById(id);
+    const ticket = await Ticket.find();
 
-    return ticket;
+    const myTicket = ticket.filter((current) => current.uid === id);
+
+    return myTicket[0];
   },
   createTicket: async (TicketInfo) => {
     const newTicket = await Ticket.create(TicketInfo);

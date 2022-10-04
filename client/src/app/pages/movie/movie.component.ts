@@ -56,7 +56,7 @@ export class MovieComponent implements OnInit {
   }
 
   getSessionsByRoom() {
-    this.dayInfo.forEach(data: (string: any) => console.log(data))
+    //.dayInfo.forEach(data: (string: any) => console.log(data))
   }
 
   goBackToHome() {
