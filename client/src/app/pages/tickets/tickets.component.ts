@@ -24,4 +24,5 @@ export class TicketsComponent implements OnInit {
       this.route.navigate(['']);
     }
   }
+
 }
