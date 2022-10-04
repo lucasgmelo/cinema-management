@@ -31,3 +31,15 @@ export interface CreateMoviesRequest {
   acceptHalf?: boolean;
   sessions?: object;
 }
+
+export interface BuyTicketRequest {
+  uid?: string;
+  tickets?: {
+    title: string;
+    room3: number;
+    date: string;
+    hour: string;
+    seats: string[];
+    link_cover: string;
+  }[];
+}

@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CreateMoviesRequest, GetMoviesResponse } from './types';
-
+import { BuyTicketRequest, CreateMoviesRequest, GetMoviesResponse } from './types';
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +20,13 @@ export class ApiService {
 
   registerMovie(data: CreateMoviesRequest) {
     return this.http.post<boolean>(`${this.baseUrl}/movies`, data);
+  }
+
+  getTickets(id: string) {
+    return this.http.get<GetMoviesResponse[]>(`${this.baseUrl}/tickets/${id}`);
+  }
+
+  buyTicket(data: BuyTicketRequest) {
+    return this.http.post<boolean>(`${this.baseUrl}/tickets`, data);
   }
 }
