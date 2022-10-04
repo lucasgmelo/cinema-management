@@ -6,6 +6,11 @@ const {
   deleteTicket,
 } = require("../repositories/ticketsRepositories");
 
+const {
+  getMovieById,
+  updateMovie,
+} = require("../repositories/moviesRepositories");
+
 module.exports = {
   list: async (req, res) => {
     try {
@@ -19,6 +24,29 @@ module.exports = {
   create: async (req, res) => {
     try {
       const newTicket = await createTicket(req.body);
+
+      const movie = await getMovieById(req.body.tickets[0].movieId);
+
+      // movie.sessions[req.body.tickets[0].date].map((current) => {
+      //   if (
+      //     current.room == req.body.tickets[0].room &&
+      //     current.hour == req.body.tickets[0].hour
+      //   ) {
+      //     return {
+      //       ...current,
+      //       seatsUnavailable: [
+      //         ...current.seatsUnavailable,
+      //         ...req.body.tickets[0].seats,
+      //       ],
+      //     };
+      //   }
+      // })
+
+      // const newMovie = {
+      //   ...movie,
+      // }
+
+      // await updateMovie(req.body.tickets[0].movieId, newMovie);
 
       res.status(201).send(newTicket);
     } catch (error) {
