@@ -12,6 +12,10 @@ router.route("/").get(async (req, res) => {
 router.route("/hours").get(moviesController.getAvailableSessions);
 
 router
+  .route("/hours")
+  .post(moviesController.availableSessions);
+
+router
   .route("/movies")
   .get(moviesController.list)
   .post(moviesController.create);

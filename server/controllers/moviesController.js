@@ -7,6 +7,7 @@ const {
 } = require("../repositories/moviesRepositories");
 
 const convertDateStringToNumber = (startDate, endDate) => {
+
   const startDates = startDate.split("/");
   const startDatesNumber = startDates.map((date) => Number(date));
   startDatesNumber[1]--;
