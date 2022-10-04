@@ -121,4 +121,8 @@ export class CheckoutComponent implements OnInit {
       });
     }
   }
+
+  voltar(){
+    this.route.navigate(['/filme', this.movie._id])
+  }
 }
