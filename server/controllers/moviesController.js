@@ -46,6 +46,8 @@ module.exports = {
 
       const updatedmovie = await updateMovie(id, req.body);
 
+      console.log(req.body);
+
       res.send(updatedmovie);
     } catch (error) {
       res.status(400).send(error);

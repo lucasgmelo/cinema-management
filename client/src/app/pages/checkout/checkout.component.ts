@@ -15,25 +15,22 @@ export class CheckoutComponent implements OnInit {
   constructor(private route: Router, private routeActivated: ActivatedRoute, private apiService: ApiService) {}
 
   movie: GetMoviesResponse = { sessions: [{}] };
-  room = ''
-  data = ''
-  hour = ''
+  room = '';
+  data = '';
+  hour = '';
 
   ngOnInit(): void {
     const id = this.routeActivated.snapshot.paramMap.get('id')!;
     this.apiService.getMovie(id).subscribe((movie) => (this.movie = movie));
 
-    this.routeActivated.queryParams
-      .subscribe(params => {
-        console.log(params);
-         // { orderby: "price" }
-        this.room = params['room']
-        this.data = params['data']
-        this.hour = params['hour']
-      }
-    );
+    this.routeActivated.queryParams.subscribe((params) => {
+      console.log(params);
+      // { orderby: "price" }
+      this.room = params['room'];
+      this.data = params['data'];
+      this.hour = params['hour'];
+    });
   }
-
 
   seatData = [...new Array(90)].map((_, index) => ({
     id: index,
@@ -94,9 +91,9 @@ export class CheckoutComponent implements OnInit {
 
     const newTickets = {
       uid: currentUser.id!,
-      movieId: id,
       tickets: [
         {
+          movieId: id,
           title: this.movie.title!,
           room: +this.room,
           date: this.data,

@@ -1,7 +1,13 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { BehaviorSubject } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 
 import { NavbarComponent } from './navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { provideFirestore } from '@angular/fire/firestore';
 
 describe('NavbarComponent', () => {
   let authService: AuthService;
@@ -12,6 +18,7 @@ describe('NavbarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [NavbarComponent],
+      imports: [ReactiveFormsModule, AngularFireModule.initializeApp(environment.firebase)],
     }).compileComponents();
     authService = TestBed.inject(AuthService);
 

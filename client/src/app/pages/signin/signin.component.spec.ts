@@ -1,5 +1,7 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { AngularFireModule } from '@angular/fire/compat';
 import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 import { SigninComponent } from './signin.component';
 
@@ -10,7 +12,7 @@ describe('SigninComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SigninComponent],
-      imports: [ReactiveFormsModule],
+      imports: [ReactiveFormsModule, AngularFireModule.initializeApp(environment.firebase)],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SigninComponent);
