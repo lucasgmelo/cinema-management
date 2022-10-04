@@ -34,10 +34,10 @@ export interface CreateMoviesRequest {
 
 export interface TicketType {
   title: string;
-  room: number;
+  room: Number;
   date: string;
   hour: string;
-  seats: string[];
+  seats: Number[];
   link_cover: string;
 }
 
