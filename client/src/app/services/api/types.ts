@@ -37,7 +37,7 @@ export interface TicketType {
   room: Number;
   date: string;
   hour: string;
-  seats: Number[];
+  seats: string[];
   link_cover: string;
 }
 

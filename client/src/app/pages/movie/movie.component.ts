@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { tap } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
 import { GetMoviesResponse } from 'src/app/services/api/types';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import Toast from 'src/app/toastConfig';
 import { GetNextDates } from 'src/app/utils/date';
 
 @Component({
@@ -11,7 +12,12 @@ import { GetNextDates } from 'src/app/utils/date';
   styleUrls: ['./movie.component.scss'],
 })
 export class MovieComponent implements OnInit {
-  constructor(private route: Router, private routeActivated: ActivatedRoute, private apiService: ApiService) {}
+  constructor(
+    private route: Router,
+    private routeActivated: ActivatedRoute,
+    private apiService: ApiService,
+    private authService: AuthService
+  ) {}
 
   movie: GetMoviesResponse = { sessions: [{}] };
   dayInfo: { [key: string]: any }[] = [];
@@ -90,7 +96,14 @@ export class MovieComponent implements OnInit {
   }
 
   goToCheckout(hour: string, room: string) {
-    this.route.navigate(['/checkout', this.movie._id], {
+    if (this.authService.user.access != 'customer') {
+      return Toast.fire({
+        icon: 'error',
+        title: 'Você precisa estar logado para comprar ingressos',
+      });
+    }
+
+    return this.route.navigate(['/checkout', this.movie._id], {
       queryParams: { data: this.selectedDay, hour: hour, room: room },
     });
   }
