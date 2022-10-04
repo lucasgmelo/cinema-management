@@ -81,35 +81,35 @@
           placeholder="ex: 12 anos"
         />
       </div>
-      <div class="form-item">
-        <label for="price">Preço<span>*</span></label>
-        <input
-          (change)="onChangeInput($event)"
-          (change)="isButtonDisabled()"
-          class="input-global"
-          type="number"
-          name="price"
-          id="price"
-          formControlName="price"
-          required
-          autocomplete="off"
-          placeholder="ex: 12"
-        />
-      </div>
-      <div class="form-item">
-        <label for="acceptHalf">Aceita meia entrada?<span>*</span></label>
-        <input
-          (change)="onChangeInput($event)"
-          (change)="isButtonDisabled()"
-          class="input-global"
-          type="checkbox"
-          name="acceptHalf"
-          id="acceptHalf"
-          formControlName="acceptHalf"
-          required
-          autocomplete="off"
-          placeholder="ex: Animação"
-        />
+      <div class="divided">
+        <div class="form-item">
+          <label for="price">Preço<span>*</span></label>
+          <input
+            (change)="onChangeInput($event)"
+            (change)="isButtonDisabled()"
+            class="input-global"
+            type="number"
+            name="price"
+            id="price"
+            formControlName="price"
+            required
+            autocomplete="off"
+            placeholder="ex: 12"
+          />
+        </div>
+        <div class="form-item">
+          <label for="acceptHalf">Aceita meia entrada?<span>*</span></label>
+          <input
+            (change)="onChangeInput($event)"
+            (change)="isButtonDisabled()"
+            type="checkbox"
+            name="acceptHalf"
+            id="acceptHalf"
+            formControlName="acceptHalf"
+            required
+            autocomplete="off"
+          />
+        </div>
       </div>
 
       <div class="form-item">
@@ -226,6 +226,6 @@
         </div>
       </div>
     </div>
-    <button [disabled]="isDisabled" type="submit" class="btn" (click)="onSubmit()">Adicionar</button>
+    <button type="submit" class="btn" (click)="onSubmit()">Adicionar</button>
   </form>
 </main>

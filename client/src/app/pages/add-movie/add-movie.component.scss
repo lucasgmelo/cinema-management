@@ -42,3 +42,22 @@ h1 {
 textarea {
   resize: none;
 }
+
+.divided {
+  display: flex;
+  justify-content: space-between;
+
+  .form-item {
+    width: auto;
+  }
+
+  input {
+    min-width: 50px;
+    width: 100px;
+  }
+
+  input[type='checkbox'] {
+    min-width: 0;
+    width: fit-content;
+  }
+}
