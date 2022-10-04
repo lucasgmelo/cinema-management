@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Toast from 'src/app/toastConfig';
 
 @Component({
@@ -8,17 +8,21 @@ import Toast from 'src/app/toastConfig';
   styleUrls: ['./payment.component.scss'],
 })
 export class PaymentComponent implements OnInit {
-  constructor(private route: Router) {}
+  constructor(private route: Router, private routeActivated: ActivatedRoute) {}
 
   numeroCartao = ''
   nomeTitular = ''
   validade = ''
   arr = []
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   goBack() {
-    this.route.navigate(['checkout/1']);
+    const id = this.routeActivated.snapshot.paramMap.get('id')!;
+
+    this.route.navigate(['checkout/', id]);
   }
 
   onChangeInputNumero(event: any){
