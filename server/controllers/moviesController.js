@@ -7,11 +7,12 @@ const {
 } = require("../repositories/moviesRepositories");
 
 const convertDateStringToNumber = (startDate, endDate) => {
-  const startDates = startDate.split('/');
+
+  const startDates = startDate.split("/");
   const startDatesNumber = startDates.map((date) => Number(date));
   startDatesNumber[1]--;
 
-  const endDates = endDate.split('/');
+  const endDates = endDate.split("/");
   const endDatesNumber = endDates.map((date) => Number(date));
   endDatesNumber[1]--;
 
@@ -28,19 +29,55 @@ module.exports = {
       res.status(400).send(error);
     }
   },
-  availableSessions: async (req, res) => {
+  getAvailableSessions: async (req, res) => {
     try {
+      let possibleHours = ["11:00", "14:00", "17:00", "20:00", "23:00"];
+
       const movies = await getMovies();
-      const possibleHours = ['12:00', '14:00', '16:00', '18:00', '20:00', '22:00'];
-      const {startDate, endDate} = req.body;
-      const [arrStart, arrEnd] = convertDateStringToNumber(startDate, endDate);
+
+      const [arrStart, arrEnd] = convertDateStringToNumber(
+        req.query.startDate,
+        req.query.endDate
+      );
 
       const startInDate = new Date(arrStart[2], arrStart[1], arrStart[0]);
       const endInDate = new Date(arrEnd[2], arrEnd[1], arrEnd[0]);
-      console.log(startInDate, endInDate);
 
+      movies.forEach((movie) => {
+        const movieStartDate = movie.start_date;
+        const movieEndDate = movie.end_date;
 
-      res.status(200).send(movies);
+        const [arrMovieStart, arrMovieEnd] = convertDateStringToNumber(
+          movieStartDate,
+          movieEndDate
+        );
+
+        const startMovieInDate = new Date(
+          arrMovieStart[2],
+          arrMovieStart[1],
+          arrMovieStart[0]
+        );
+        const endMovieInDate = new Date(
+          arrMovieEnd[2],
+          arrMovieEnd[1],
+          arrMovieEnd[0]
+        );
+
+        if (
+          (startInDate.getTime() <= endMovieInDate.getTime() &&
+            startInDate.getTime() >= startMovieInDate.getTime()) ||
+          (endInDate.getTime() <= endMovieInDate.getTime() &&
+            endInDate.getTime() >= startMovieInDate.getTime())
+        ) {
+          movie.managementInfo.forEach((info) => {
+            if (info.room == req.query.room) {
+              possibleHours = possibleHours.filter((hour) => hour != info.hour);
+            }
+          });
+        }
+      });
+
+      res.status(200).send(possibleHours);
     } catch (error) {
       res.status(400).send(error);
     }

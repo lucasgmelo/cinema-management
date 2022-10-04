@@ -9,6 +9,8 @@ router.route("/").get(async (req, res) => {
   res.status(200).send("hello!");
 });
 
+router.route("/hours").get(moviesController.getAvailableSessions);
+
 router
   .route("/hours")
   .post(moviesController.availableSessions);
