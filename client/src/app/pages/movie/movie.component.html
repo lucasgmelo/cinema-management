@@ -31,59 +31,19 @@
     <h3>Sessões Disponíveis</h3>
     <div>
       <app-datepicker
-        date="28/09"
-        when="HOJE"
-        [isSelected]="0 == selectedDay"
-        (click)="changeSelectedDay(0)"
-      ></app-datepicker>
-      <app-datepicker
-        date="29/09"
-        when="AMANHÃ"
-        [isSelected]="1 == selectedDay"
-        (click)="changeSelectedDay(1)"
-      ></app-datepicker>
-      <app-datepicker
-        date="30/09"
-        when="SEGUNDA"
-        [isSelected]="2 == selectedDay"
-        (click)="changeSelectedDay(2)"
-      ></app-datepicker>
-      <app-datepicker
-        date="01/10"
-        when="TERÇA"
-        [isSelected]="3 == selectedDay"
-        (click)="changeSelectedDay(3)"
-      ></app-datepicker>
-      <app-datepicker
-        date="02/10"
-        when="QUARTA"
-        [isSelected]="4 == selectedDay"
-        (click)="changeSelectedDay(4)"
-      ></app-datepicker>
-      <app-datepicker
-        date="03/10"
-        when="QUINTA"
-        [isSelected]="5 == selectedDay"
-        (click)="changeSelectedDay(5)"
-      ></app-datepicker>
-      <app-datepicker
-        date="04/10"
-        when="SEXTA"
-        [isSelected]="6 == selectedDay"
-        (click)="changeSelectedDay(6)"
+        *ngFor="let day of arrDates"
+        [when]="day.name"
+        [date]="day.date" 
+        [isSelected]="day.date == selectedDay"
+        (click)="changeSelectedDay(day.date)"
       ></app-datepicker>
     </div>
   </section>
 
   <section class="theater">
-    <p>SALA1</p>
-    <div>
-      <button class="btn outline" (click)="goToCheckout()">14:00</button>
-      <button class="btn" disabled (click)="goToCheckout()">17:00</button>
-    </div>
-    <p>SALA 3</p>
-    <div>
-      <button class="btn outline" (click)="goToCheckout()">15:00</button>
-    </div>
+      <p>SALA 1</p>
+      <div>
+        <button class="btn outline" (click)="goToCheckout()"></button>
+      </div>
   </section>
 </main>

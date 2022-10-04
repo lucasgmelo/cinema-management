@@ -1,10 +1,12 @@
 export function GetNextDates(startDate: Date, daysToAdd: number) {
-  const arrDates = [];
+  const arrDates: Array<{name: string, date: string}> = [];
 
   for (let i = 0; i <= daysToAdd; i++) {
     const currentDate = new Date();
     currentDate.setDate(startDate.getDate() + i);
-    arrDates.push(DayAsString(currentDate.getDay()) + ', ' + currentDate);
+    const formatedDate = currentDate.toLocaleDateString().split("/").slice(0,2).join("/");
+    
+    arrDates.push({name: DayAsString(currentDate.getDay()), date: formatedDate});
   }
 
   return arrDates;
