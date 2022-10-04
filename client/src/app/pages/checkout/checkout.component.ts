@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { idToken } from '@angular/fire/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
 import { GetMoviesResponse } from 'src/app/services/api/types';
@@ -89,8 +90,11 @@ export class CheckoutComponent implements OnInit {
   async onSubmit() {
     const currentUser: User = JSON.parse(localStorage.getItem('user') || '{}');
 
+    const id = this.routeActivated.snapshot.paramMap.get('id')!;
+
     const newTickets = {
       uid: currentUser.id!,
+      movieId: id,
       tickets: [
         {
           title: this.movie.title!,
