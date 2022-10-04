@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'gerenciar', component: ManagementComponent },
   { path: 'adicionar-filme', component: AddMovieComponent },
   { path: 'editar-filme', component: EditPageComponent },
-  { path: 'pagamento', component: PaymentComponent },
+  { path: 'pagamento/:id', component: PaymentComponent },
   { path: 'ingressos', component: TicketsComponent },
   { path: 'filme/:id', component: MovieComponent },
 ];

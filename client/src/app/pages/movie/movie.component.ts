@@ -93,7 +93,7 @@ export class MovieComponent implements OnInit {
 
   goToCheckout(hour: string, room: string) {
     this.route.navigate(['/checkout', this.movie._id], {
-      queryParams: { date: this.selectedDay, hour: hour, room: room },
+      queryParams: { data: this.selectedDay, hour: hour, room: room },
     });
   }
 }
