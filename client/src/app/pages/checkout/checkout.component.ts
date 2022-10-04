@@ -14,11 +14,25 @@ export class CheckoutComponent implements OnInit {
   constructor(private route: Router, private routeActivated: ActivatedRoute, private apiService: ApiService) {}
 
   movie: GetMoviesResponse = { sessions: [{}] };
+  room = ''
+  data = ''
+  hour = ''
 
   ngOnInit(): void {
     const id = this.routeActivated.snapshot.paramMap.get('id')!;
     this.apiService.getMovie(id).subscribe((movie) => (this.movie = movie));
+
+    this.routeActivated.queryParams
+      .subscribe(params => {
+        console.log(params);
+         // { orderby: "price" }
+        this.room = params['room']
+        this.data = params['data']
+        this.hour = params['hour']
+      }
+    );
   }
+
 
   seatData = [...new Array(90)].map((_, index) => ({
     id: index,
@@ -80,9 +94,9 @@ export class CheckoutComponent implements OnInit {
       tickets: [
         {
           title: this.movie.title!,
-          room: 4,
-          date: '06/09/2022',
-          hour: '17:00',
+          room: +this.room,
+          date: this.data,
+          hour: this.hour,
           link_cover: this.movie.link_cover!,
           seats: this.selectedSeats!,
         },
@@ -96,7 +110,9 @@ export class CheckoutComponent implements OnInit {
         icon: 'success',
         text: 'Ingressos Reservados',
       });
-      this.route.navigate(['/pagamento']);
+      this.route.navigate(['/pagamento', this.movie._id], {
+        queryParams: { data: this.data, hour: this.hour, room: this.room },
+      });
     } else {
       Toast.fire({
         icon: 'error',
