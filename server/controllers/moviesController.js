@@ -7,7 +7,6 @@ const {
 } = require("../repositories/moviesRepositories");
 
 const convertDateStringToNumber = (startDate, endDate) => {
-
   const startDates = startDate.split("/");
   const startDatesNumber = startDates.map((date) => Number(date));
   startDatesNumber[1]--;
@@ -111,8 +110,6 @@ module.exports = {
       if (!movie) return res.status(404).send({ message: "movie not found" });
 
       const updatedmovie = await updateMovie(id, req.body);
-
-      console.log(req.body);
 
       res.send(updatedmovie);
     } catch (error) {
