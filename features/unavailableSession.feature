@@ -1,27 +1,21 @@
 Feature: Availability of sessions
-  As a customer
-  I want to be able to see which session are available
-  So that I can choose one to buy tickets
 
-Scenario: Movie unavailable due to lack of seats
-  Given I'm in the Movies page 
-  And There's a list of all sessions
-  And I want to see if there's any 'Spider Man' session available
-  When I see that all 'Spider Man' sessions are full
-  Then I know that there are no available sessions
+  As a client
+  I want to be able to see which sessions are available
+  Then I can choose one to buy tickets
 
-Scenario: Session unavailable due to an unforeseen event
-  Given I'm in the Movies page 
-  And There's a list of all sessions
-  And I want to see if 'Spider Man' first session of the day is available
-  When I see that 'Spider Man' is unavailable
-  And There's a message that the reason is 'Unforeseen event happened'
-  Then I know that 'Spider Man' first session of the day is unavailable
+  Scenario: Movie unavailable due to lack of seats
+    Given I am on the homepage
+    And I click on the movie I want to watch
+    And I am redirected to the movie page 'Pinocchio: The Wooden Boy'
+    And I want to see if there is any session available
+    When I see that all 'Pinocchio: The Wooden Boy' time options are unavailable to click
+    Then I know there are no sessions available
 
-Scenario: Session unavailable while user navigated to sessions
-  Given I'm in the Movies page 
-  And There's a list of all sessions
-  And I want to see if 'Spider Man' first session of the day is available
-  When I see that 'Spider Man' is unavailable
-  And There's a message that the reason is 'Unforeseen event happened'
-  Then I know that 'Spider Man' first session of the day is unavailable
+  Scenario: First session unavailable while user was navigating to sessions
+    Given I am on the homepage
+    And there is a list of all movie options
+    And I want to see if the first session of the day of 'Pinocchio: The Wooden Boy' is available
+    When I click on "View available sessions" I am redirected to the movie's exclusive page
+    And I see that the first time is unable to be clicked
+    Then I know that the first session of the day of 'Pinocchio: The Wooden Boy' is not available
