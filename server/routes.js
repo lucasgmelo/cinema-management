@@ -13,7 +13,7 @@ router.route("/hours").get(moviesController.getAvailableSessions);
 
 router
   .route("/hours")
-  .post(moviesController.availableSessions);
+  .post(moviesController.getAvailableSessions);
 
 router
   .route("/movies")

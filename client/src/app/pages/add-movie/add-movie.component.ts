@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
@@ -11,6 +11,7 @@ import { createSessionObjects, reverseDate } from 'src/app/utils/sessions';
   styleUrls: ['./add-movie.component.scss'],
 })
 export class AddMovieComponent implements OnInit {
+
   constructor(private route: Router, private formBuilder: FormBuilder, private apiService: ApiService) {}
 
   isDisabled = true;
@@ -100,6 +101,7 @@ export class AddMovieComponent implements OnInit {
         break;
       }
       case 'startDate': {
+
         if (!event.target.value) {
           this.emptystartDate = true;
         } else {
@@ -108,6 +110,7 @@ export class AddMovieComponent implements OnInit {
         break;
       }
       case 'finalDate': {
+
         if (!event.target.value) {
           this.emptyfinalDate = true;
         } else {
@@ -204,4 +207,19 @@ export class AddMovieComponent implements OnInit {
       });
     }
   }
+
+  horas: string[] = []
+
+  returnAvailableHours(){
+
+    const SD = reverseDate(this.registerMovieForm.value.startDate!)
+    const FD = reverseDate(this.registerMovieForm.value.finalDate!)
+
+    this.apiService.getAvailableHours(SD,FD,+this.registerMovieForm.value.room1!).subscribe(hours => 
+      
+      this.horas = hours)
+
+  }
+
 }
+
