@@ -27,26 +27,32 @@ module.exports = {
 
       const movie = await getMovieById(req.body.tickets[0].movieId);
 
-      // movie.sessions[req.body.tickets[0].date].map((current) => {
-      //   if (
-      //     current.room == req.body.tickets[0].room &&
-      //     current.hour == req.body.tickets[0].hour
-      //   ) {
-      //     return {
-      //       ...current,
-      //       seatsUnavailable: [
-      //         ...current.seatsUnavailable,
-      //         ...req.body.tickets[0].seats,
-      //       ],
-      //     };
-      //   }
-      // })
+      const newSessions = movie.sessions[req.body.tickets[0].date].map(
+        (current) => {
+          if (
+            current.room == req.body.tickets[0].room &&
+            current.hour == req.body.tickets[0].hour
+          ) {
+            return {
+              ...current,
+              seatsUnavailable: [
+                ...current.seatsUnavailable,
+                ...req.body.tickets[0].seats,
+              ],
+            };
+          }
+        }
+      );
 
-      // const newMovie = {
-      //   ...movie,
-      // }
+      const newMovie = {
+        ...movie._doc,
+        sessions: {
+          ...movie._doc.sessions,
+          [req.body.tickets[0].date]: newSessions,
+        },
+      };
 
-      // await updateMovie(req.body.tickets[0].movieId, newMovie);
+      await updateMovie(req.body.tickets[0].movieId, newMovie);
 
       res.status(201).send(newTicket);
     } catch (error) {
