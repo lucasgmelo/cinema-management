@@ -11,7 +11,7 @@ module.exports = {
 
     const myTicket = ticket.filter((current) => current.uid === id);
 
-    return myTicket[0];
+    return myTicket;
   },
   createTicket: async (TicketInfo) => {
     const newTicket = await Ticket.create(TicketInfo);

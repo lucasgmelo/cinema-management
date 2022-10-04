@@ -27,7 +27,7 @@ export class ApiService {
   }
 
   getTickets(id: string) {
-    return this.http.get<BuyTicketRequest>(`${this.baseUrl}/tickets/${id}`);
+    return this.http.get<BuyTicketRequest[]>(`${this.baseUrl}/tickets/${id}`);
   }
 
   buyTicket(data: BuyTicketRequest) {
