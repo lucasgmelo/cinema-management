@@ -7,8 +7,8 @@
       <div class="form-item">
         <label for="name">Nome do filme<span>*</span></label>
         <input
-          (change)="onChangeInput($event)"
-          (change)="isButtonDisabled()"
+          (keyup)="onChangeInput($event)"
+          (keyup)="isButtonDisabled()"
           class="input-global"
           type="text"
           name="name"
@@ -22,8 +22,8 @@
       <div class="form-item">
         <label for="director">Diretor<span>*</span></label>
         <input
-          (change)="onChangeInput($event)"
-          (change)="isButtonDisabled()"
+          (keyup)="onChangeInput($event)"
+          (keyup)="isButtonDisabled()"
           class="input-global"
           type="text"
           name="director"
@@ -38,8 +38,8 @@
       <div class="form-item">
         <label for="duration">Duração<span>*</span></label>
         <input
-          (change)="onChangeInput($event)"
-          (change)="isButtonDisabled()"
+          (keyup)="onChangeInput($event)"
+          (keyup)="isButtonDisabled()"
           class="input-global"
           type="number"
           name="duration"
@@ -115,8 +115,8 @@
       <div class="form-item">
         <label for="imageLink">Banner<span>*</span></label>
         <input
-          (change)="onChangeInput($event)"
-          (change)="isButtonDisabled()"
+          (keyup)="onChangeInput($event)"
+          (keyup)="isButtonDisabled()"
           class="input-global"
           type="text"
           name="imageLink"

@@ -12,35 +12,35 @@
       <form>
         <div class="form-item">
           <label for="card">Número do cartão<span>*</span></label>
-          <input class="input-global" type="number" name="card" id="card" required autocomplete="off" />
+          <input (keyup)="onChangeInputNumero($event)" class="input-global" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"  maxlength="16" name="card" id="card" required autocomplete="off" />
         </div>
 
         <div class="form-item">
           <label for="name">Nome do titular<span>*</span></label>
-          <input class="input-global" type="text" name="name" id="name" required />
+          <input (keyup)="onChangeInputNome($event)" class="input-global" type="text" pattern="\d*" maxlength="16" name="name" id="name" required />
         </div>
 
         <div class="form-item">
           <label for="due-date">Vencimento<span>*</span></label>
-          <input class="input-global" type="text" name="due-date" id="due-date" required />
+          <input (keyup)="onChangeInputValidade($event)" class="input-global" type="text" pattern="\d*" maxlength="7" name="due-date" id="due-date" required />
         </div>
 
         <div class="form-item">
           <label for="code">CVV<span>*</span></label>
-          <input class="input-global" type="number" name="code" id="code" required />
+          <input class="input-global" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="3" name="code" id="code" required />
         </div>
       </form>
     </div>
 
     <div class="card">
       <div class="chip"></div>
-      <p>**** **** **** ****</p>
+      <p>{{numeroCartao}}</p>
 
       <div class="name">
-        <h2>Ada Heimann</h2>
+        <h2>{{nomeTitular}}</h2>
         <div class="due-date">
           <p>VALIDADE</p>
-          <p>**/****</p>
+          <p>{{validade}}</p>
         </div>
       </div>
     </div>

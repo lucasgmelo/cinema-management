@@ -21,6 +21,8 @@ export class CheckoutComponent implements OnInit {
   valorInteira = 0
   valorMeia = 0
 
+  btnDisabled = true
+
   selectedSeats:Number[] = []
 
   addSeat(id:number){
@@ -52,14 +54,23 @@ export class CheckoutComponent implements OnInit {
 
   onChangeInputMeia(event: any){
     
-    this.valorMeia = event.target.value * 16
+    this.valorMeia = event.target.value
 
   }
 
   onChangeInputInteira(event: any){
     
-    this.valorInteira = event.target.value * 32
+    this.valorInteira = event.target.value
 
+  }
+
+  isButtonDisabled(){
+    if(this.selectedSeats.length == (1*this.valorInteira + this.valorMeia*1) && (1*this.valorInteira + this.valorMeia*1) != 0){
+      this.btnDisabled = false
+    }
+    else{
+      this.btnDisabled = true
+    }
   }
 
 }
