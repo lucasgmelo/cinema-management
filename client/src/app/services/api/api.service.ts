@@ -22,8 +22,8 @@ export class ApiService {
     return this.http.post<boolean>(`${this.baseUrl}/movies`, data);
   }
 
-  updateMovie(data: GetMoviesResponse) {
-    return this.http.patch<boolean>(`${this.baseUrl}/movies/${data._id}`, data);
+  deleteMovie(id: string) {
+    return this.http.delete<boolean>(`${this.baseUrl}/movies/${id}`);
   }
 
   getTickets(id: string) {

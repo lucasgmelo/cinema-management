@@ -9,6 +9,7 @@
       *ngFor="let movie of data"
       cover="{{ movie.link_cover }}"
       title="{{ movie.title }}"
+      id="{{movie._id}}"
       date="{{ movie.end_date }}"
     ></app-management-card>
   </section>
