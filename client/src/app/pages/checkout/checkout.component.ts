@@ -18,25 +18,32 @@ export class CheckoutComponent implements OnInit {
   room = '';
   data = '';
   hour = '';
+  seatData: { id: number; isDisabled: boolean; isSelected: boolean }[] = [];
 
   ngOnInit(): void {
     const id = this.routeActivated.snapshot.paramMap.get('id')!;
-    this.apiService.getMovie(id).subscribe((movie) => (this.movie = movie));
+    this.apiService.getMovie(id).subscribe((movie) => {
+      this.movie = movie;
 
-    this.routeActivated.queryParams.subscribe((params) => {
-      console.log(params);
-      // { orderby: "price" }
-      this.room = params['room'];
-      this.data = params['data'];
-      this.hour = params['hour'];
+      this.routeActivated.queryParams.subscribe((params) => {
+        this.room = params['room'];
+        this.data = params['data'];
+        this.hour = params['hour'];
+
+        const sessionInfo = this.movie.sessions[`${params['data']}/2022`].filter(
+          (session: { room: any; hour: any }) => session.room == params['room'] && session.hour == params['hour']
+        );
+
+        this.seatData = [...new Array(90)].map((_: any, index: any) => {
+          return {
+            id: index,
+            isDisabled: sessionInfo[0]['seatsUnavailable'].includes(String(index)),
+            isSelected: false,
+          };
+        });
+      });
     });
   }
-
-  seatData = [...new Array(90)].map((_, index) => ({
-    id: index,
-    isDisabled: false,
-    isSelected: false,
-  }));
 
   valorInteira = 0;
   valorMeia = 0;
@@ -61,8 +68,6 @@ export class CheckoutComponent implements OnInit {
     }
 
     this.seatData[id].isSelected = !this.seatData[id].isSelected;
-
-    console.log(this.selectedSeats);
   }
 
   onChangeInputMeia(event: any) {
@@ -103,8 +108,6 @@ export class CheckoutComponent implements OnInit {
         },
       ],
     };
-
-    console.log(newTickets);
 
     if (this.apiService.buyTicket(newTickets).subscribe()) {
       Toast.fire({

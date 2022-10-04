@@ -66,8 +66,6 @@ export class MovieComponent implements OnInit {
     this.dayInfo = data.sessions[`${this.selectedDay}/2022`];
 
     this.dayInfo.forEach((current) => {
-      console.log(current);
-
       if (current['room'] === '1') {
         this.room1 = true;
         this.arrRoom1.push({ hour: current['hour'], available: current['available'] });

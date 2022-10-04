@@ -31,7 +31,6 @@ export class AuthService {
   };
 
   returnPermission(name: string) {
-    console.log(name);
     if (name.includes('Admin')) return 'manager';
     return 'customer';
   }

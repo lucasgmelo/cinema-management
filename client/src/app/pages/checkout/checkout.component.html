@@ -46,7 +46,9 @@
       </div>
     </div>
 
-    <p>Subtotal<span>R$ {{(valorMeia*16) + (valorInteira*32)}}</span></p>
+    <p>
+      Subtotal<span>R$ {{ valorMeia * 16 + valorInteira * 32 }}</span>
+    </p>
   </section>
 
   <section class="seats">
@@ -87,7 +89,7 @@
     <div>
       <p>Escolhidos:</p>
       <p>{{ selectedSeats.join(', ') }}</p>
-      <p>{{selectedSeats.length}} / {{valorMeia*1 + valorInteira*1}}</p>
+      <p>{{ selectedSeats.length }} / {{ valorMeia * 1 + valorInteira * 1 }}</p>
     </div>
 
     <button (click)="onSubmit()" [disabled]="btnDisabled" class="btn">Continuar para pagamento</button>

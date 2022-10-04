@@ -55,8 +55,6 @@ describe('NavbarComponent', () => {
 
   //   tick(10000);
 
-  //   console.log(component.user);
-
   //   let button = fixture.debugElement.nativeElement.querySelector('section a');
   //   expect(button.innerText).toBe('Ingressos');
   // }));

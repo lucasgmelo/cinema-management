@@ -17,18 +17,13 @@ export class TicketsComponent implements OnInit {
   ngOnInit(): void {
     const currentUser: User = JSON.parse(localStorage.getItem('user') || '{}');
     this.apiService.getTickets(currentUser.id!).subscribe((data) => {
-
       data.forEach((obj) => {
-        this.tickets.push(...obj.tickets!)
-      })
-
-      //this.tickets = data!;
-      console.log(this.tickets)
+        this.tickets.push(...obj.tickets!);
+      });
     });
 
     if (this.authService.user.access != 'customer') {
       this.route.navigate(['']);
     }
   }
-
 }
