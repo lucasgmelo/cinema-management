@@ -12,7 +12,7 @@ export interface GetMoviesResponse {
   end_date?: string;
   price?: number;
   acceptHalf?: boolean;
-  sessions?: any;
+  sessions: { [key: string]: any }[];
   managementInfo?: { room: string; hour: string }[];
 }
 
