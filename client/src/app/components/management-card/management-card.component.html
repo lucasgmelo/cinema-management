@@ -3,10 +3,7 @@
   <div>
     <img src="{{ cover }}" class="img" />
     <div class="info">
-      <div class="room-info">
-        <!-- <p>{{ theater }} - {{ hour }}</p> -->
-      </div>
-      <p class="deadline">Até 25/08/22</p>
+      <p class="deadline">Até {{ date }}</p>
     </div>
   </div>
   <button class="btn small" (click)="goToEditPage()">Editar</button>

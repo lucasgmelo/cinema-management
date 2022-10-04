@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api/api.service';
 import Toast from 'src/app/toastConfig';
 import { createSessionObjects, reverseDate } from 'src/app/utils/sessions';
 
@@ -10,7 +11,7 @@ import { createSessionObjects, reverseDate } from 'src/app/utils/sessions';
   styleUrls: ['./add-movie.component.scss'],
 })
 export class AddMovieComponent implements OnInit {
-  constructor(private route: Router, private formBuilder: FormBuilder) {}
+  constructor(private route: Router, private formBuilder: FormBuilder, private apiService: ApiService) {}
 
   isDisabled = true;
 
@@ -150,7 +151,7 @@ export class AddMovieComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  async onSubmit() {
     const {
       director,
       duration,
@@ -167,35 +168,40 @@ export class AddMovieComponent implements OnInit {
       price,
       acceptHalf,
     } = this.registerMovieForm.value;
-    Toast.fire({
-      icon: 'success',
-      text: 'Filme adicionado com sucesso',
-    });
 
     const newMovie = {
-      title: name,
-      link_cover: imageLink,
-      duration: `${duration} min`,
-      genre,
-      synopsis,
-      director,
+      title: name!,
+      link_cover: imageLink!,
+      duration: `${duration!} min`,
+      genre: genre!,
+      synopsis: synopsis!,
+      director: director!,
       cast: cast!.split(', '),
-      classification,
+      classification: classification!,
       start_date: reverseDate(startDate!),
       end_date: reverseDate(finalDate!),
-      price,
-      acceptHalf,
+      price: Number(price!),
+      acceptHalf: acceptHalf!,
       managementInfo: [
         {
-          room: room1,
-          hour: time1,
+          room: room1!,
+          hour: time1!,
         },
       ],
       sessions: createSessionObjects(reverseDate(startDate!), reverseDate(finalDate!), room1!, time1!),
     };
 
-    console.log(newMovie);
-
-    //this.route.navigate(['gerenciar']);
+    if (this.apiService.registerMovie(newMovie).subscribe()) {
+      Toast.fire({
+        icon: 'success',
+        text: 'Filme criado com sucesso',
+      });
+      this.route.navigate(['/gerenciar']);
+    } else {
+      Toast.fire({
+        icon: 'error',
+        title: 'Não foi possível criar o filme, tente novamente mais tarde',
+      });
+    }
   }
 }
