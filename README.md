@@ -76,15 +76,27 @@ This is an example of how to list things you need to use the software and how to
    npm install
    ```
 
+#### Run this command both in the client and server folders
+
 Extra:
 It's suggested for you to have [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension installed on VSCode.
 
 ### :bulb: Executing
 
+1. Make sure you are in the server folder
+
 ```sh
 npm run start
 ```
 
-visit: http://localhost:4200/
+You are going to receive a message: "Connected to DB"
+
+2. On another terminal, go to the client folder
+
+```sh
+npm run start
+```
+
+3. visit: http://localhost:4200/
 
 ### :sparkles: That's all, thanks!
